@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leitura Guiada — Taking Care of Ourselves — Inglês 9º ano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#12121f;
+  --bg-deep:#0b0b16;
+  --card:#1c1c2e;
+  --card-2:#232338;
+  --border:#33334d;
+  --border-soft:#2a2a40;
+  --text:#eef0f8;
+  --text-dim:#9aa0bd;
+  --text-soft:#c3c8de;
+  --teal:#34d399;
+  --teal-soft:rgba(52,211,153,.14);
+  --violet:#a78bfa;
+  --violet-soft:rgba(167,139,250,.14);
+  --rose:#fb7185;
+  --rose-soft:rgba(251,113,133,.14);
+  --sky:#38bdf8;
+  --sky-soft:rgba(56,189,248,.14);
+  --amber:#fbbf24;
+  --shadow:0 10px 30px rgba(0,0,0,.45);
+  --shadow-soft:0 4px 16px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--bg);
+  background-image:radial-gradient(circle at 15% 5%,rgba(52,211,153,.06) 0,transparent 45%),radial-gradient(circle at 85% 90%,rgba(167,139,250,.06) 0,transparent 45%);
+  background-attachment:fixed;color:var(--text);line-height:1.65;min-height:100vh;padding-bottom:70px}
+header{text-align:center;padding:40px 20px 26px;background:linear-gradient(180deg,rgba(52,211,153,.08) 0,transparent 100%);border-bottom:1px solid var(--border-soft)}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--teal);color:var(--teal);padding:6px 15px;border-radius:99px;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;box-shadow:var(--shadow-soft)}
+.badge::before{content:'';width:8px;height:8px;background:var(--teal);border-radius:50%;box-shadow:0 0 10px var(--teal);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-family:'Sora',sans-serif;font-size:clamp(1.9rem,6vw,3.2rem);font-weight:800;letter-spacing:-.02em;background:linear-gradient(135deg,var(--teal) 0%,#a7f3d0 45%,var(--violet) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
+.subtitle{font-family:'Caveat',cursive;font-size:1.5rem;color:var(--text-dim)}
+.unit-tag{display:block;margin-top:10px;font-size:.82rem;color:var(--text-soft);letter-spacing:.04em}
+main{max-width:850px;margin:0 auto;padding:26px 18px}
+.intro{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:14px;padding:20px 22px;margin-bottom:26px;box-shadow:var(--shadow-soft)}
+.intro h2{font-family:'Sora';font-size:1.15rem;color:var(--teal);margin-bottom:8px}
+.intro p{color:var(--text-soft);font-size:.96rem}
+.progress-wrap{position:sticky;top:0;z-index:40;background:rgba(18,18,31,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 18px;border-bottom:1px solid var(--border);margin-bottom:24px}
+.progress-inner{max-width:850px;margin:0 auto}
+.progress-label{display:flex;justify-content:space-between;font-size:.8rem;color:var(--text-dim);margin-bottom:6px;font-weight:600}
+.progress-bar{height:9px;background:var(--bg-deep);border-radius:99px;overflow:hidden;border:1px solid var(--border-soft)}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--violet));border-radius:99px;transition:width .5s ease}
+.block{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:0;margin-bottom:20px;box-shadow:var(--shadow-soft);overflow:hidden;opacity:.5;pointer-events:none;transition:opacity .4s}
+.block.unlocked{opacity:1;pointer-events:auto}
+.block.done{border-color:var(--teal)}
+.block-head{display:flex;align-items:center;gap:12px;padding:18px 22px;background:linear-gradient(180deg,var(--teal-soft) 0,transparent 100%);border-bottom:1px solid var(--border-soft)}
+.block-num{flex-shrink:0;width:34px;height:34px;border-radius:10px;background:var(--teal);color:var(--bg-deep);font-family:'Sora';font-weight:800;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.block.done .block-num::after{content:'✓'}
+.block.done .block-num span{display:none}
+.block-title{font-family:'Sora';font-size:1.12rem;font-weight:700;color:var(--text)}
+.lock-icon{margin-left:auto;color:var(--text-dim);font-size:1.1rem}
+.block.unlocked .lock-icon{display:none}
+.block-body{padding:22px}
+.block-body p{color:var(--text-soft);font-size:.98rem;margin-bottom:14px}
+.block-body p strong{color:var(--text);font-weight:700}
+.block-body p em{color:var(--teal);font-style:normal;font-weight:600}
+.ex{background:var(--bg-deep);border:1px solid var(--border-soft);border-left:3px solid var(--sky);border-radius:10px;padding:12px 14px;margin:14px 0;display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.ex .en{color:var(--text);font-weight:600;font-size:.95rem}
+.ex .pt{color:var(--text-dim);font-size:.86rem;font-style:italic;display:block;width:100%;margin-top:2px}
+.audio-btn{background:var(--sky);color:var(--bg-deep);border:none;min-width:26px;height:26px;border-radius:50%;cursor:pointer;font-size:.8rem;display:inline-flex;align-items:center;justify-content:center;transition:transform .2s;padding:0;flex-shrink:0}
+.audio-btn:hover{transform:scale(1.15)}
+.formula{background:var(--violet-soft);border:1px solid var(--violet);color:var(--violet);border-radius:10px;padding:10px 14px;font-family:'Sora';font-weight:600;font-size:.92rem;margin:12px 0;text-align:center}
+.q{margin:16px 0 4px}
+.q label{display:block;font-size:.92rem;color:var(--text);font-weight:600;margin-bottom:6px}
+.q textarea{width:100%;background:var(--bg-deep);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:'Nunito';font-size:.94rem;padding:10px 12px;resize:vertical;min-height:52px}
+.q textarea:focus{outline:none;border-color:var(--teal)}
+.check-btn{margin-top:14px;background:var(--teal);color:var(--bg-deep);border:none;border-radius:10px;padding:11px 20px;font-family:'Sora';font-weight:700;font-size:.92rem;cursor:pointer;transition:opacity .2s,transform .1s;width:100%}
+.check-btn:disabled{opacity:.4;cursor:not-allowed}
+.check-btn:not(:disabled):hover{transform:translateY(-1px)}
+.model{display:none;margin-top:16px;background:var(--teal-soft);border:1px solid var(--teal);border-radius:12px;padding:16px 18px}
+.model.show{display:block;animation:fade .4s}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.model h4{font-family:'Sora';color:var(--teal);font-size:.92rem;margin-bottom:8px}
+.model .ans{color:var(--text-soft);font-size:.9rem;margin-bottom:8px;padding-bottom:8px;border-bottom:1px dashed var(--border-soft)}
+.model .ans:last-of-type{border-bottom:none}
+.model .ans b{color:var(--text)}
+.selfeval{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+.selfeval button{flex:1;min-width:130px;border-radius:10px;padding:9px 12px;font-family:'Sora';font-weight:600;font-size:.85rem;cursor:pointer;border:1px solid var(--border);background:var(--card-2);color:var(--text-soft);transition:all .2s}
+.selfeval button.ok.sel{background:var(--teal);color:var(--bg-deep);border-color:var(--teal)}
+.selfeval button.rev.sel{background:var(--amber);color:var(--bg-deep);border-color:var(--amber)}
+.next-btn{display:none;margin-top:14px;width:100%;background:var(--violet);color:var(--bg-deep);border:none;border-radius:10px;padding:11px 20px;font-family:'Sora';font-weight:700;font-size:.9rem;cursor:pointer}
+.next-btn.show{display:block}
+.traps{background:var(--rose-soft);border:1px solid var(--rose);border-left:5px solid var(--rose);border-radius:14px;padding:22px;margin:26px 0}
+.traps-title{font-family:'Sora';font-size:1.15rem;font-weight:700;color:var(--rose);margin-bottom:14px}
+.traps ul{list-style:none}
+.traps li{padding:9px 0;color:var(--text-soft);font-size:.93rem;border-bottom:1px dashed rgba(251,113,133,.22)}
+.traps li:last-child{border-bottom:none}
+.traps strong{color:var(--text)}
+.traps em{color:var(--rose);font-style:normal;font-weight:700}
+.finalcard{background:var(--card);border:1px solid var(--teal);border-radius:16px;padding:26px;text-align:center;margin-top:20px;box-shadow:var(--shadow)}
+.finalcard h3{font-family:'Sora';color:var(--teal);font-size:1.3rem;margin-bottom:8px}
+.finalcard p{color:var(--text-soft);margin-bottom:16px}
+.nav-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.nav-links a{text-decoration:none;background:var(--teal);color:var(--bg-deep);padding:12px 22px;border-radius:12px;font-family:'Sora';font-weight:700;font-size:.9rem;transition:transform .15s}
+.nav-links a.ghost{background:var(--card-2);color:var(--text-soft);border:1px solid var(--border)}
+.nav-links a:hover{transform:translateY(-2px)}
+/* save panel */
+.save-panel{position:fixed;bottom:0;left:0;right:0;background:rgba(11,11,22,.96);backdrop-filter:blur(10px);border-top:1px solid var(--border);padding:8px 14px;z-index:60;display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;font-size:.8rem}
+.save-panel .status{color:var(--text-dim)}
+.save-panel button{background:var(--card-2);color:var(--text-soft);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-family:'Nunito';font-weight:700;font-size:.78rem;cursor:pointer}
+.save-panel button:hover{border-color:var(--teal);color:var(--text)}
+/* modal */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;align-items:center;justify-content:center;padding:20px}
+.modal-bg.show{display:flex}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px;max-width:400px;width:100%;box-shadow:var(--shadow)}
+.modal h4{font-family:'Sora';color:var(--text);margin-bottom:10px}
+.modal p{color:var(--text-soft);font-size:.92rem;margin-bottom:18px}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end}
+.modal-actions button{border-radius:10px;padding:9px 18px;font-family:'Sora';font-weight:700;font-size:.85rem;cursor:pointer;border:none}
+.modal-actions .cancel{background:var(--card-2);color:var(--text-soft);border:1px solid var(--border)}
+.modal-actions .confirm{background:var(--rose);color:var(--bg-deep)}
+@media(max-width:600px){main{padding:20px 14px}.block-body{padding:18px}}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="badge">📖 Leitura Guiada</span>
+  <h1>Taking Care of Ourselves</h1>
+  <p class="subtitle">read · listen · reflect — english 9th grade</p>
+  <span class="unit-tag">UNIT 6 · Breakthrough — Mental Health · Healthy Habits · Conditionals</span>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <div class="progress-label"><span>Sua jornada de leitura</span><span id="progTxt">0 / 7 blocos</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
+  </div>
+</div>
+
+<main>
+  <div class="intro">
+    <h2>🌙 Como usar esta leitura</h2>
+    <p>Leia cada bloco com calma, clique no <strong>🔊</strong> para ouvir as frases em inglês (ouça e repita em voz alta) e responda as perguntas com suas próprias palavras. O botão <strong>"Conferir"</strong> só liga quando você preenche todas as respostas. Depois de conferir, o próximo bloco se abre. No fim tem uma caixa de <strong>pegadinhas de prova</strong>. Tudo o que você escrever fica salvo automaticamente.</p>
+  </div>
+
+  <!-- BLOCK 1 -->
+  <div class="block unlocked" id="b1" data-block="1">
+    <div class="block-head"><div class="block-num"><span>1</span></div><div class="block-title">Mental Health — o vocabulário do cuidado</div><span class="lock-icon">🔓</span></div>
+    <div class="block-body">
+      <p>A Unit 6 se chama <em>Taking Care of Ourselves</em> — "Cuidando de nós mesmos". A primeira parte fala sobre <strong>saúde mental</strong> (mental health). O livro traz palavras que aparecem quando falamos de sentimentos, dificuldades e recuperação.</p>
+      <p>Palavras-chave: <strong>balance</strong> (equilíbrio), <strong>depression</strong> (depressão), <strong>self-esteem</strong> (autoestima), <strong>therapy</strong> (terapia), <strong>psychologist</strong> (psicólogo), <strong>recovery</strong> (recuperação), <strong>treatment</strong> (tratamento) e <strong>bullying</strong>.</p>
+      <div class="ex"><button class="audio-btn" onclick="speak('It is a common misunderstanding that sadness and depression are the same thing, but they are not.')" aria-label="Ouvir">🔊</button><span class="en">It's a common misunderstanding that sadness and depression are the same thing, but they're not.<span class="pt">É um engano comum achar que tristeza e depressão são a mesma coisa, mas não são.</span></span></div>
+      <div class="ex"><button class="audio-btn" onclick="speak('Having a strong support system is an important part of recovery from mental health problems.')" aria-label="Ouvir">🔊</button><span class="en">Having a strong support system is an important part of recovery from mental health problems.<span class="pt">Ter uma boa rede de apoio é parte importante da recuperação de problemas de saúde mental.</span></span></div>
+      <div class="q"><label>1) Escreva, em inglês, uma diferença entre <em>sadness</em> e <em>depression</em> (pode ser uma frase simples).</label><textarea data-q="b1q1"></textarea></div>
+      <div class="q"><label>2) Traduza para o português: <em>self-esteem</em>, <em>recovery</em> e <em>treatment</em>.</label><textarea data-q="b1q2"></textarea></div>
+      <button class="check-btn" data-check="1" disabled>Conferir bloco 1</button>
+      <div class="model" id="m1">
+        <h4>✅ Respostas modelo</h4>
+        <div class="ans">1) <b>Sadness</b> is a normal, temporary feeling; <b>depression</b> is a health condition that lasts and needs treatment. (Tristeza é passageira; depressão é uma condição que dura e precisa de tratamento.)</div>
+        <div class="ans">2) self-esteem = <b>autoestima</b> · recovery = <b>recuperação</b> · treatment = <b>tratamento</b>.</div>
+        <div class="selfeval"><button class="ok" data-eval="1">✔ Acertei</button><button class="rev" data-eval="1">↻ Preciso revisar</button></div>
+        <button class="next-btn" data-next="1">Abrir bloco 2 →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCK 2 -->
+  <div class="block" id="b2" data-block="2">
+    <div class="block-head"><div class="block-num"><span>2</span></div><div class="block-title">Healthy Habits — as combinações (collocations)</div><span class="lock-icon">🔒</span></div>
+    <div class="block-body">
+      <p>Em inglês, alguns verbos "andam junto" com certos substantivos. Isso se chama <strong>collocation</strong>. Na parte <em>Healthy Habits</em>, o livro pede para juntar o verbo certo com o substantivo certo.</p>
+      <p>As combinações que caem na prova: <strong>appreciate nature</strong> (apreciar a natureza), <strong>practice meditation</strong> (praticar meditação), <strong>keep a journal</strong> (manter um diário), <strong>limit screen time</strong> (limitar o tempo de tela), <strong>maintain a healthy diet</strong> (manter uma dieta saudável), <strong>establish a routine</strong> (estabelecer uma rotina), <strong>exercise regularly</strong> (exercitar-se com frequência) e <strong>get regular checkups</strong> (fazer check-ups).</p>
+      <div class="ex"><button class="audio-btn" onclick="speak('I try to maintain a healthy diet and exercise regularly.')" aria-label="Ouvir">🔊</button><span class="en">I try to maintain a healthy diet and exercise regularly.<span class="pt">Eu tento manter uma dieta saudável e me exercitar com frequência.</span></span></div>
+      <div class="ex"><button class="audio-btn" onclick="speak('To reduce stress, she decided to limit screen time and keep a journal.')" aria-label="Ouvir">🔊</button><span class="en">To reduce stress, she decided to limit screen time and keep a journal.<span class="pt">Para reduzir o estresse, ela decidiu limitar o tempo de tela e manter um diário.</span></span></div>
+      <div class="q"><label>1) Complete com o verbo certo: "I want to _______ a routine" e "You should _______ a healthy diet."</label><textarea data-q="b2q1"></textarea></div>
+      <div class="q"><label>2) Escreva 2 hábitos saudáveis que VOCÊ faz ou gostaria de fazer, em inglês (use as collocations).</label><textarea data-q="b2q2"></textarea></div>
+      <button class="check-btn" data-check="2" disabled>Conferir bloco 2</button>
+      <div class="model" id="m2">
+        <h4>✅ Respostas modelo</h4>
+        <div class="ans">1) "I want to <b>establish</b> a routine" · "You should <b>maintain</b> a healthy diet."</div>
+        <div class="ans">2) Exemplos: <b>"I practice meditation every morning."</b> / <b>"I want to limit screen time at night."</b></div>
+        <div class="selfeval"><button class="ok" data-eval="2">✔ Acertei</button><button class="rev" data-eval="2">↻ Preciso revisar</button></div>
+        <button class="next-btn" data-next="2">Abrir bloco 3 →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCK 3 -->
+  <div class="block" id="b3" data-block="3">
+    <div class="block-head"><div class="block-num"><span>3</span></div><div class="block-title">Second Conditional — o "se" imaginário do presente</div><span class="lock-icon">🔒</span></div>
+    <div class="block-body">
+      <p>O <strong>Second Conditional</strong> fala de situações <strong>imaginárias, improváveis ou irreais</strong> no presente ou futuro. É o "se fosse assim..." que a gente sabe que não é bem a realidade.</p>
+      <div class="formula">If + <u>simple past</u> , would / could / might + <u>verbo base</u></div>
+      <div class="ex"><button class="audio-btn" onclick="speak('If I had more free time, I would exercise every day.')" aria-label="Ouvir">🔊</button><span class="en">If I had more free time, I would exercise every day.<span class="pt">Se eu tivesse mais tempo livre, eu me exercitaria todo dia. (mas não tenho)</span></span></div>
+      <div class="ex"><button class="audio-btn" onclick="speak('If she practiced meditation, she might feel calmer.')" aria-label="Ouvir">🔊</button><span class="en">If she practiced meditation, she might feel calmer.<span class="pt">Se ela praticasse meditação, talvez se sentisse mais calma.</span></span></div>
+      <p>Repare: mesmo falando do presente, o verbo do "if" fica no <strong>passado simples</strong> (had, practiced). Com o verbo <em>to be</em>, o inglês formal usa <strong>were</strong> para todas as pessoas: <em>"If I were you..."</em></p>
+      <div class="q"><label>1) Complete: "If I _______ (be) rich, I _______ (travel) the world." (Second Conditional)</label><textarea data-q="b3q1"></textarea></div>
+      <div class="q"><label>2) O que o Second Conditional expressa: situação real ou imaginária do presente? Explique com suas palavras.</label><textarea data-q="b3q2"></textarea></div>
+      <button class="check-btn" data-check="3" disabled>Conferir bloco 3</button>
+      <div class="model" id="m3">
+        <h4>✅ Respostas modelo</h4>
+        <div class="ans">1) "If I <b>were</b> rich, I <b>would travel</b> the world." (if + passado / would + verbo base)</div>
+        <div class="ans">2) Situação <b>imaginária/irreal</b> do presente ou futuro — algo que provavelmente não vai acontecer, um "se fosse".</div>
+        <div class="selfeval"><button class="ok" data-eval="3">✔ Acertei</button><button class="rev" data-eval="3">↻ Preciso revisar</button></div>
+        <button class="next-btn" data-next="3">Abrir bloco 4 →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCK 4 -->
+  <div class="block" id="b4" data-block="4">
+    <div class="block-head"><div class="block-num"><span>4</span></div><div class="block-title">Third Conditional — o arrependimento do passado</div><span class="lock-icon">🔒</span></div>
+    <div class="block-body">
+      <p>O <strong>Third Conditional</strong> fala de um passado que <strong>NÃO aconteceu</strong> — aquele "se eu tivesse feito diferente...". É o condicional do arrependimento e da imaginação sobre o passado.</p>
+      <div class="formula">If + <u>past perfect</u> (had + particípio) , would have + <u>particípio passado</u></div>
+      <div class="ex"><button class="audio-btn" onclick="speak('If Cathy had not gone swimming, she would not have gotten an earache.')" aria-label="Ouvir">🔊</button><span class="en">If Cathy hadn't gone swimming, she wouldn't have gotten an earache.<span class="pt">Se a Cathy não tivesse ido nadar, ela não teria tido dor de ouvido. (mas ela foi e teve)</span></span></div>
+      <div class="ex"><button class="audio-btn" onclick="speak('If you had exercised this morning, you would have felt better.')" aria-label="Ouvir">🔊</button><span class="en">If you had exercised this morning, you would have felt better.<span class="pt">Se você tivesse se exercitado hoje de manhã, teria se sentido melhor.</span></span></div>
+      <p>Dá para trocar <strong>would</strong> por <strong>might</strong> ou <strong>could</strong> quando você não tem certeza: <em>"If you had gone to yoga, you might have learned to relax."</em> Na fala, usamos as contrações: <strong>'d</strong> (= had/would), <strong>hadn't</strong>, <strong>wouldn't</strong>.</p>
+      <div class="q"><label>1) Complete: "If they _______ (not / stay) up late, I _______ (not / sleep) in." (Third Conditional)</label><textarea data-q="b4q1"></textarea></div>
+      <div class="q"><label>2) O Third Conditional fala de um passado que aconteceu ou que NÃO aconteceu? Dê um exemplo seu.</label><textarea data-q="b4q2"></textarea></div>
+      <button class="check-btn" data-check="4" disabled>Conferir bloco 4</button>
+      <div class="model" id="m4">
+        <h4>✅ Respostas modelo</h4>
+        <div class="ans">1) "If they <b>hadn't stayed</b> up late, I <b>wouldn't have slept</b> in." (if + past perfect / would have + particípio)</div>
+        <div class="ans">2) Fala de um passado que <b>NÃO aconteceu</b>. Ex.: <b>"If I had studied more, I would have passed the test."</b></div>
+        <div class="selfeval"><button class="ok" data-eval="4">✔ Acertei</button><button class="rev" data-eval="4">↻ Preciso revisar</button></div>
+        <button class="next-btn" data-next="4">Abrir bloco 5 →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCK 5 -->
+  <div class="block" id="b5" data-block="5">
+    <div class="block-head"><div class="block-num"><span>5</span></div><div class="block-title">Mixed Conditional — passado que muda o presente</div><span class="lock-icon">🔒</span></div>
+    <div class="block-body">
+      <p>O <strong>Mixed Conditional</strong> mistura os dois: o "if" fica no <strong>passado</strong> (como no Third) e o resultado fica no <strong>presente</strong>. Serve para dizer: "por causa de algo que aconteceu (ou não) no passado, hoje eu estou assim".</p>
+      <div class="formula">If + <u>past perfect</u> (had + particípio) , would + <u>verbo base</u> (resultado agora)</div>
+      <div class="ex"><button class="audio-btn" onclick="speak('If I had not started seeing a psychologist, I would be much less balanced now.')" aria-label="Ouvir">🔊</button><span class="en">If I hadn't started seeing a psychologist, I would be much less balanced now.<span class="pt">Se eu não tivesse começado a ver um psicólogo, eu estaria bem menos equilibrado(a) agora.</span></span></div>
+      <div class="ex"><button class="audio-btn" onclick="speak('If she had prepared lunch, she would feel much better now.')" aria-label="Ouvir">🔊</button><span class="en">If she had prepared lunch, she would feel much better now.<span class="pt">Se ela tivesse preparado o almoço, se sentiria bem melhor agora.</span></span></div>
+      <p>Perceba a diferença do Third: aqui o resultado é <strong>"would feel", "would be"</strong> (sem o <em>have</em>), porque estamos falando de <strong>agora</strong>, não do passado. Palavrinhas como <strong>now</strong> e <strong>today</strong> são pistas.</p>
+      <div class="q"><label>1) Complete: "If they _______ (not / meet) at the party, _______ they _______ (be) together now?"</label><textarea data-q="b5q1"></textarea></div>
+      <div class="q"><label>2) Qual a pista que mostra que o resultado é no presente (e não no passado)?</label><textarea data-q="b5q2"></textarea></div>
+      <button class="check-btn" data-check="5" disabled>Conferir bloco 5</button>
+      <div class="model" id="m5">
+        <h4>✅ Respostas modelo</h4>
+        <div class="ans">1) "If they <b>hadn't met</b> at the party, <b>would</b> they <b>be</b> together now?" (if + past perfect / would + verbo base)</div>
+        <div class="ans">2) A palavra <b>now</b> (agora). Também "today". Elas mostram que o resultado é no presente, então usamos <b>would + verbo base</b>, sem <em>have</em>.</div>
+        <div class="selfeval"><button class="ok" data-eval="5">✔ Acertei</button><button class="rev" data-eval="5">↻ Preciso revisar</button></div>
+        <button class="next-btn" data-next="5">Abrir bloco 6 →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCK 6 -->
+  <div class="block" id="b6" data-block="6">
+    <div class="block-head"><div class="block-num"><span>6</span></div><div class="block-title">Mixed Conditional — presente que muda o passado</div><span class="lock-icon">🔒</span></div>
+    <div class="block-body">
+      <p>Existe o mix ao contrário: o "if" fala de algo <strong>geral / do presente</strong> e o resultado fica no <strong>passado</strong>. Ou seja: "porque eu sou/tenho assim (em geral), naquele momento aconteceu isso".</p>
+      <div class="formula">If + <u>simple past</u> , would have + <u>particípio passado</u> (resultado no passado)</div>
+      <div class="ex"><button class="audio-btn" onclick="speak('If you had a healthier diet, you would have done better in the race.')" aria-label="Ouvir">🔊</button><span class="en">If you had a healthier diet, you would have done better in the race.<span class="pt">Se você tivesse uma dieta mais saudável (em geral), teria ido melhor na corrida.</span></span></div>
+      <div class="ex"><button class="audio-btn" onclick="speak('If they did not charge so much, they would not have gone out of business.')" aria-label="Ouvir">🔊</button><span class="en">If they didn't charge so much, they wouldn't have gone out of business.<span class="pt">Se eles não cobrassem tão caro (em geral), não teriam falido.</span></span></div>
+      <p>Aqui o "if" está no <strong>passado simples</strong> (had, didn't charge) descrevendo algo geral, e o resultado usa <strong>would have + particípio</strong> porque aconteceu no passado.</p>
+      <div class="q"><label>1) Complete: "If I _______ (have) better grades, _______ they _______ (accept) me?"</label><textarea data-q="b6q1"></textarea></div>
+      <div class="q"><label>2) Com suas palavras: qual a diferença entre este mix (bloco 6) e o do bloco 5?</label><textarea data-q="b6q2"></textarea></div>
+      <button class="check-btn" data-check="6" disabled>Conferir bloco 6</button>
+      <div class="model" id="m6">
+        <h4>✅ Respostas modelo</h4>
+        <div class="ans">1) "If I <b>had</b> better grades, <b>would</b> they <b>have accepted</b> me?" (if + simple past / would have + particípio)</div>
+        <div class="ans">2) No bloco 5, a causa é no <b>passado</b> e o resultado no <b>presente</b> (would be/feel). No bloco 6, a causa é <b>geral/presente</b> e o resultado é no <b>passado</b> (would have done).</div>
+        <div class="selfeval"><button class="ok" data-eval="6">✔ Acertei</button><button class="rev" data-eval="6">↻ Preciso revisar</button></div>
+        <button class="next-btn" data-next="6">Abrir bloco 7 →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOCK 7 -->
+  <div class="block" id="b7" data-block="7">
+    <div class="block-head"><div class="block-num"><span>7</span></div><div class="block-title">Juntando tudo — como não confundir na prova</div><span class="lock-icon">🔒</span></div>
+    <div class="block-body">
+      <p>Antes da prova, fixe o "esqueleto" de cada condicional. A pergunta que resolve quase tudo é: <strong>a causa e o resultado estão no presente ou no passado?</strong></p>
+      <div class="ex"><span class="en" style="width:100%"><strong>Second</strong> (imaginário do presente): If + passado → <em>would + verbo</em>.<br><strong>Third</strong> (passado que não foi): If + past perfect → <em>would have + particípio</em>.<br><strong>Mixed A</strong> (passado → presente): If + past perfect → <em>would + verbo</em> + <em>now</em>.<br><strong>Mixed B</strong> (geral → passado): If + passado → <em>would have + particípio</em>.</span></div>
+      <div class="ex"><button class="audio-btn" onclick="speak('If I had exercised this morning, I would feel better now.')" aria-label="Ouvir">🔊</button><span class="en">If I had exercised this morning, I would feel better now.<span class="pt">(Mixed A: passado → presente. Repare no "now".)</span></span></div>
+      <div class="q"><label>1) Classifique a frase: "If I studied more, I would pass." — é qual condicional?</label><textarea data-q="b7q1"></textarea></div>
+      <div class="q"><label>2) Escreva UMA frase sua, em inglês, usando o Third Conditional sobre saúde ou hábitos.</label><textarea data-q="b7q2"></textarea></div>
+      <div class="q"><label>3) Explique em 1 linha como você diferencia o Third do Mixed A.</label><textarea data-q="b7q3"></textarea></div>
+      <button class="check-btn" data-check="7" disabled>Conferir bloco 7</button>
+      <div class="model" id="m7">
+        <h4>✅ Respostas modelo</h4>
+        <div class="ans">1) É <b>Second Conditional</b> (if + passado / would + verbo base — situação imaginária do presente).</div>
+        <div class="ans">2) Ex.: <b>"If I had slept more, I wouldn't have felt so tired yesterday."</b></div>
+        <div class="ans">3) No <b>Third</b> o resultado é no passado (<em>would have + particípio</em>); no <b>Mixed A</b> o resultado é agora (<em>would + verbo</em>, geralmente com "now").</div>
+        <div class="selfeval"><button class="ok" data-eval="7">✔ Acertei</button><button class="rev" data-eval="7">↻ Preciso revisar</button></div>
+        <button class="next-btn" data-next="7">Ver as pegadinhas finais →</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="traps" id="finaltraps" style="display:none">
+    <h3 class="traps-title">⚠ Pegadinhas de prova — leia antes de dormir!</h3>
+    <ul>
+      <li><strong>Third sem o "have":</strong> o certo é <em>would HAVE gone</em>, não "would gone". Esse <b>have</b> some da cabeça — é obrigatório.</li>
+      <li><strong>Mixed A x Third:</strong> se tiver <em>now/today</em> no resultado, é Mixed A (would + verbo). Sem "now" e falando do passado, é Third (would have + particípio).</li>
+      <li><strong>Particípio ≠ passado simples:</strong> <em>would have <b>gone</b></em> (✓), não "would have went" (✗). <em>gotten, done, met, been</em>.</li>
+      <li><strong>Second Conditional com "were":</strong> em inglês formal, use <em>"If I <b>were</b> you"</em>, não "If I was you".</li>
+      <li><strong>Collocation errada:</strong> é <em>maintain a healthy diet</em> e <em>keep a journal</em> — não "do a diet" nem "make a journal".</li>
+      <li><strong>Contrações:</strong> <em>'d</em> pode ser <b>had</b> OU <b>would</b>. No "if" é had; no resultado é would. <em>"If I'd known, I'd have helped."</em></li>
+      <li><strong>depression ≠ sadness:</strong> na prova de vocabulário, depressão é uma <b>condition</b> (condição), não só um sentimento passageiro.</li>
+    </ul>
+    <div class="selfeval" style="margin-top:16px"><button class="ok" data-eval="traps">✔ Entendi as pegadinhas</button><button class="rev" data-eval="traps">↻ Vou reler</button></div>
+  </div>
+
+  <div class="finalcard" id="finalcard" style="display:none">
+    <h3>🎉 Leitura concluída!</h3>
+    <p>Agora teste o que aprendeu no Quiz — enquanto o assunto está fresquinho.</p>
+    <div class="nav-links">
+      <a href="ingles_quiz.html">🎯 Ir para o Quiz →</a>
+      <a href="index.html" class="ghost">↩ Voltar ao início</a>
+    </div>
+  </div>
+</main>
+
+<div class="save-panel">
+  <span class="status" id="saveStatus">💾 salvando automaticamente…</span>
+  <button onclick="exportData()">📥 Exportar</button>
+  <button onclick="document.getElementById('importFile').click()">📤 Importar</button>
+  <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
+  <button onclick="askReset()">🗑️ Zerar tudo</button>
+</div>
+
+<div class="modal-bg" id="modalBg">
+  <div class="modal">
+    <h4 id="modalTitle">Zerar tudo?</h4>
+    <p id="modalMsg">Isso apaga todas as suas respostas e o progresso desta leitura. Não dá para desfazer.</p>
+    <div class="modal-actions">
+      <button class="cancel" onclick="closeModal()">Cancelar</button>
+      <button class="confirm" id="modalConfirm">Zerar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var KEY='ig9_selfcare_leitura_v1';
+var mem={answers:{},unlocked:1,done:{},evals:{}};
+var store={
+  get:function(){try{var r=localStorage.getItem(KEY);return r?JSON.parse(r):null;}catch(e){return mem._saved||null;}},
+  set:function(o){try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){mem._saved=o;}}
+};
+function speak(t){if(!('speechSynthesis'in window))return;var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=0.82;speechSynthesis.cancel();speechSynthesis.speak(u);}
+function save(){mem._saved=null;store.set({answers:mem.answers,unlocked:mem.unlocked,done:mem.done,evals:mem.evals});stamp();}
+function stamp(){var d=new Date();document.getElementById('saveStatus').textContent='💾 salvo '+d.toLocaleDateString('pt-BR')+' '+d.toLocaleTimeString('pt-BR').slice(0,5);}
+function totalBlocks(){return 7;}
+function updateProgress(){var n=Object.keys(mem.done).length;document.getElementById('progTxt').textContent=n+' / 7 blocos';document.getElementById('progFill').style.width=(n/7*100)+'%';}
+function unlockUpTo(n){for(var i=1;i<=n;i++){var b=document.getElementById('b'+i);if(b)b.classList.add('unlocked');}mem.unlocked=Math.max(mem.unlocked,n);}
+function refreshCheck(bn){var b=document.getElementById('b'+bn);var tas=b.querySelectorAll('textarea');var ok=true;tas.forEach(function(t){if(t.value.trim().length<3)ok=false;});var btn=b.querySelector('.check-btn');if(btn)btn.disabled=!ok;}
+document.querySelectorAll('textarea').forEach(function(t){
+  t.addEventListener('input',function(){mem.answers[t.dataset.q]=t.value;var bn=t.closest('.block').dataset.block;refreshCheck(bn);save();});
+});
+document.querySelectorAll('.check-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){var bn=btn.dataset.check;document.getElementById('m'+bn).classList.add('show');});
+});
+document.querySelectorAll('.next-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var bn=parseInt(btn.dataset.next);
+    var b=document.getElementById('b'+bn);b.classList.add('done');
+    mem.done[bn]=true;
+    if(bn<7){unlockUpTo(bn+1);document.getElementById('b'+(bn+1)).scrollIntoView({behavior:'smooth'});}
+    else{document.getElementById('finaltraps').style.display='block';document.getElementById('finaltraps').scrollIntoView({behavior:'smooth'});}
+    updateProgress();save();
+  });
+});
+document.querySelectorAll('.selfeval button').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var grp=btn.parentElement;grp.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});
+    btn.classList.add('sel');mem.evals[btn.dataset.eval]=btn.classList.contains('ok')?'ok':'rev';
+    if(btn.dataset.eval==='traps'){document.getElementById('finalcard').style.display='block';document.getElementById('finalcard').scrollIntoView({behavior:'smooth'});}
+    save();
+  });
+});
+function exportData(){var blob=new Blob([JSON.stringify(store.get()||{},null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='leitura_selfcare_backup.json';a.click();}
+function importData(ev){var f=ev.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(){try{var o=JSON.parse(r.result);store.set(o);restore();stamp();}catch(e){}};r.readAsText(f);}
+function askReset(){document.getElementById('modalBg').classList.add('show');document.getElementById('modalConfirm').onclick=function(){try{localStorage.removeItem(KEY);}catch(e){}mem={answers:{},unlocked:1,done:{},evals:{}};location.reload();};}
+function closeModal(){document.getElementById('modalBg').classList.remove('show');}
+function restore(){
+  var s=store.get();if(!s)return;mem.answers=s.answers||{};mem.unlocked=s.unlocked||1;mem.done=s.done||{};mem.evals=s.evals||{};
+  document.querySelectorAll('textarea').forEach(function(t){if(mem.answers[t.dataset.q]!==undefined){t.value=mem.answers[t.dataset.q];}});
+  var maxDone=0;Object.keys(mem.done).forEach(function(k){var n=parseInt(k);var b=document.getElementById('b'+n);if(b){b.classList.add('done');document.getElementById('m'+n).classList.add('show');}if(n>maxDone)maxDone=n;});
+  unlockUpTo(Math.max(mem.unlocked,maxDone+1>7?7:maxDone+1));
+  for(var i=1;i<=7;i++)refreshCheck(i);
+  Object.keys(mem.evals).forEach(function(k){var m=(k==='traps')?document.getElementById('finaltraps'):document.getElementById('m'+k);if(!m)return;var cls=mem.evals[k]==='ok'?'ok':'rev';var b=m.querySelector('.selfeval button.'+cls);if(b)b.classList.add('sel');});
+  if(mem.done[7]){document.getElementById('finaltraps').style.display='block';}
+  if(mem.evals['traps']){document.getElementById('finalcard').style.display='block';}
+  updateProgress();stamp();
+}
+restore();
+</script>
+</body>
+</html>
