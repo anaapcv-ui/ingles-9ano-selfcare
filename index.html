@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit de Estudos — Inglês 9º ano — Taking Care of Ourselves</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#12121f;--bg-deep:#0b0b16;--card:#1c1c2e;--card-2:#232338;--border:#33334d;--border-soft:#2a2a40;
+  --text:#eef0f8;--text-dim:#9aa0bd;--text-soft:#c3c8de;
+  --teal:#34d399;--teal-soft:rgba(52,211,153,.14);--violet:#a78bfa;--violet-soft:rgba(167,139,250,.14);
+  --rose:#fb7185;--rose-soft:rgba(251,113,133,.14);--sky:#38bdf8;--sky-soft:rgba(56,189,248,.14);--amber:#fbbf24;
+  --shadow:0 10px 30px rgba(0,0,0,.45);--shadow-soft:0 4px 16px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--bg);
+  background-image:radial-gradient(circle at 15% 5%,rgba(52,211,153,.07) 0,transparent 45%),radial-gradient(circle at 85% 90%,rgba(167,139,250,.07) 0,transparent 45%);
+  background-attachment:fixed;color:var(--text);line-height:1.6;min-height:100vh;padding-bottom:50px}
+header{text-align:center;padding:52px 20px 30px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--teal);color:var(--teal);padding:6px 15px;border-radius:99px;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px;box-shadow:var(--shadow-soft)}
+.badge::before{content:'🌙'}
+h1{font-family:'Sora';font-size:clamp(2rem,7vw,3.6rem);font-weight:800;letter-spacing:-.02em;background:linear-gradient(135deg,var(--teal) 0%,#a7f3d0 40%,var(--violet) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px;line-height:1.1}
+.subtitle{font-family:'Caveat',cursive;font-size:1.6rem;color:var(--text-dim)}
+.meta{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.meta span{background:var(--card);border:1px solid var(--border);color:var(--text-soft);font-size:.78rem;padding:5px 12px;border-radius:99px}
+main{max-width:820px;margin:0 auto;padding:20px 18px}
+.howto{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--amber);border-radius:14px;padding:20px 22px;margin-bottom:28px}
+.howto h2{font-family:'Sora';font-size:1.1rem;color:var(--amber);margin-bottom:12px}
+.howto ol{margin:0;padding-left:20px;color:var(--text-soft);font-size:.94rem}
+.howto li{padding:4px 0}
+.howto li strong{color:var(--text)}
+.cards{display:grid;gap:16px}
+.mcard{display:flex;align-items:center;gap:18px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;text-decoration:none;box-shadow:var(--shadow-soft);transition:transform .2s,border-color .2s;position:relative;overflow:hidden}
+.mcard::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--accent)}
+.mcard:hover{transform:translateY(-3px);border-color:var(--accent)}
+.mcard .step{font-family:'Sora';font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+.mcard .ico{flex-shrink:0;width:58px;height:58px;border-radius:15px;background:var(--accent-soft);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.7rem}
+.mcard h3{font-family:'Sora';font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:3px}
+.mcard p{color:var(--text-dim);font-size:.88rem}
+.mcard .arrow{margin-left:auto;color:var(--accent);font-size:1.4rem;font-weight:700}
+.c1{--accent:var(--teal);--accent-soft:var(--teal-soft)}
+.c2{--accent:var(--violet);--accent-soft:var(--violet-soft)}
+.c3{--accent:var(--sky);--accent-soft:var(--sky-soft)}
+.c4{--accent:var(--rose);--accent-soft:var(--rose-soft)}
+.tipbox{background:linear-gradient(135deg,#3b3450 0%,#463c60 100%);color:#f0ecff;border-radius:6px;padding:20px 22px 20px 28px;font-family:'Caveat',cursive;font-size:1.2rem;line-height:1.45;box-shadow:var(--shadow);border:1px solid var(--violet-soft);margin-top:28px;position:relative;transform:rotate(-.5deg)}
+.tipbox::before{content:'📌';position:absolute;top:-9px;left:16px;font-size:1.4rem}
+.tipbox strong{color:var(--amber);font-family:'Sora';font-size:.82rem;letter-spacing:.05em;display:block;margin-bottom:5px}
+footer{text-align:center;margin-top:34px;color:var(--text-dim);font-size:.8rem}
+@media(max-width:600px){.mcard{padding:18px;gap:14px}.mcard .ico{width:48px;height:48px;font-size:1.4rem}}
+</style>
+</head>
+<body>
+<header>
+  <span class="badge">Kit de Estudos · 9º ano</span>
+  <h1>Taking Care<br>of Ourselves</h1>
+  <p class="subtitle">english · unit 6 · self-care</p>
+  <div class="meta"><span>📘 Reference Book p. 33–35</span><span>🧠 Mental Health</span><span>🌱 Healthy Habits</span><span>🔀 Conditionals</span><span>🔊 com áudio</span></div>
+</header>
+<main>
+  <div class="howto">
+    <h2>🌙 Como usar este material</h2>
+    <ol>
+      <li><strong>Leitura Guiada</strong> — leia com calma e ouça as frases (clique no 🔊).</li>
+      <li><strong>Quiz</strong> — teste o que entendeu enquanto está fresquinho.</li>
+      <li><strong>Resumo</strong> — feche as lacunas que o Quiz mostrou.</li>
+      <li><strong>Simulado</strong> — enfrente valendo, no estilo da prova.</li>
+    </ol>
+  </div>
+  <div class="cards">
+    <a class="mcard c1" href="ingles_leitura_guiada.html">
+      <div class="ico">📖</div>
+      <div><div class="step">Passo 1</div><h3>Leitura Guiada</h3><p>7 blocos · texto + áudio + perguntas com correção</p></div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="mcard c2" href="ingles_quiz.html">
+      <div class="ico">🎯</div>
+      <div><div class="step">Passo 2</div><h3>Quiz</h3><p>15 questões objetivas · código MED · gabarito comentado</p></div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="mcard c3" href="ingles_resumo.html">
+      <div class="ico">🗺️</div>
+      <div><div class="step">Passo 3</div><h3>Resumo</h3><p>gramática + vocabulário · tudo com áudio 🔊</p></div>
+      <span class="arrow">→</span>
+    </a>
+    <a class="mcard c4" href="ingles_simulado.html">
+      <div class="ico">📝</div>
+      <div><div class="step">Passo 4</div><h3>Simulado</h3><p>26 questões · Multiple Choice + Fill + Reorder · código SIM</p></div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+  <div class="tipbox">
+    <strong>💡 DICA DA MÃE</strong>
+    Faça um material por dia, na ordem. Ouça cada frase em inglês em voz alta e repita — é assim que a pronúncia gruda. Anote os códigos MED e SIM para mostrar que terminou!
+  </div>
+  <footer>Kit gerado para o jovem aprendiz · 9º ano · Colégio Coração Feliz · Inglês — Unit 6 "Breakthrough"</footer>
+</main>
+</body>
+</html>
