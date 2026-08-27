@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumo — Taking Care of Ourselves — Inglês 9º ano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#12121f;--bg-deep:#0b0b16;--card:#1c1c2e;--card-2:#232338;--border:#33334d;--border-soft:#2a2a40;
+  --text:#eef0f8;--text-dim:#9aa0bd;--text-soft:#c3c8de;
+  --teal:#34d399;--teal-soft:rgba(52,211,153,.14);--violet:#a78bfa;--violet-soft:rgba(167,139,250,.14);
+  --rose:#fb7185;--rose-soft:rgba(251,113,133,.14);--sky:#38bdf8;--sky-soft:rgba(56,189,248,.14);--amber:#fbbf24;
+  --shadow:0 10px 30px rgba(0,0,0,.45);--shadow-soft:0 4px 16px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--bg);
+  background-image:radial-gradient(circle at 15% 5%,rgba(56,189,248,.06) 0,transparent 45%),radial-gradient(circle at 85% 90%,rgba(52,211,153,.06) 0,transparent 45%);
+  background-attachment:fixed;color:var(--text);line-height:1.6;min-height:100vh;padding-bottom:80px}
+header{text-align:center;padding:40px 20px 22px;background:linear-gradient(180deg,rgba(56,189,248,.08) 0,transparent 100%);border-bottom:1px solid var(--border-soft)}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--sky);color:var(--sky);padding:6px 15px;border-radius:99px;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+.badge::before{content:'🗺️'}
+h1{font-family:'Sora';font-size:clamp(1.8rem,6vw,3rem);font-weight:800;letter-spacing:-.02em;background:linear-gradient(135deg,var(--sky),#7dd3fc,var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
+.subtitle{font-family:'Caveat',cursive;font-size:1.4rem;color:var(--text-dim)}
+.unit-tag{display:block;margin-top:8px;font-size:.8rem;color:var(--text-soft)}
+.tabs-wrap{position:sticky;top:0;z-index:50;background:rgba(18,18,31,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:12px 0}
+.tabs{max-width:1050px;margin:0 auto;padding:0 16px;display:flex;gap:8px;overflow-x:auto}
+.tabs::-webkit-scrollbar{height:4px}.tabs::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+.tab{flex-shrink:0;background:var(--card);border:1px solid var(--border);color:var(--text-dim);padding:9px 15px;border-radius:10px;font-family:'Sora';font-size:.83rem;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap}
+.tab:hover{border-color:var(--sky);color:var(--text)}
+.tab.active{background:var(--sky);color:var(--bg-deep);border-color:var(--sky);font-weight:700}
+main{max-width:1050px;margin:0 auto;padding:28px 18px}
+.tab-content{display:none;animation:fade .4s}.tab-content.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.section-head{margin-bottom:24px;padding-left:16px;border-left:4px solid var(--sky)}
+.section-title{font-family:'Sora';font-size:1.7rem;font-weight:800;color:var(--text)}
+.section-sub{font-family:'Caveat',cursive;font-size:1.2rem;color:var(--text-dim)}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin-bottom:26px}
+.card{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--sky);border-radius:14px;padding:20px;box-shadow:var(--shadow-soft);transition:transform .2s}
+.card:hover{transform:translateY(-3px)}
+.card.teal{border-top-color:var(--teal)}.card.violet{border-top-color:var(--violet)}.card.rose{border-top-color:var(--rose)}
+.card-tag{font-family:'Caveat',cursive;font-size:1rem;color:var(--text-dim);margin-bottom:6px}
+.card-title{font-family:'Sora';font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:10px}
+.card-text{color:var(--text-soft);font-size:.92rem}
+.card-text strong{color:var(--text)}.card-text em{color:var(--sky);font-style:normal;font-weight:600}
+.formula-box{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--violet);border-radius:14px;padding:20px 22px;margin-bottom:22px}
+.formula-box h3{font-family:'Sora';color:var(--violet);font-size:1.15rem;margin-bottom:14px}
+.formula-row{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:center;padding:12px 14px;background:var(--bg-deep);border:1px solid var(--border-soft);border-radius:10px;margin-bottom:10px}
+.formula-row:last-child{margin-bottom:0}
+.tense-label{font-family:'Caveat',cursive;font-size:1.05rem;color:var(--amber);font-weight:700}
+.formula{font-family:'Sora';font-weight:600;color:var(--teal);background:var(--teal-soft);padding:6px 10px;border-radius:6px;font-size:.85rem;display:inline-block}
+.ex-line{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;background:var(--bg-deep);border:1px solid var(--border-soft);border-radius:10px;margin-bottom:9px;flex-wrap:wrap}
+.ex-line .en{color:var(--text);font-weight:600;font-size:.93rem}
+.ex-line .pt{color:var(--text-dim);font-size:.84rem;font-style:italic;width:100%}
+.audio-btn{background:var(--sky);color:var(--bg-deep);border:none;min-width:26px;height:26px;border-radius:50%;cursor:pointer;font-size:.8rem;display:inline-flex;align-items:center;justify-content:center;transition:transform .2s;padding:0;flex-shrink:0}
+.audio-btn:hover{transform:scale(1.15)}
+.vocab-section{margin-bottom:28px}
+.vocab-section-title{font-family:'Sora';font-size:1.2rem;font-weight:700;color:var(--sky);margin-bottom:14px;padding-bottom:8px;border-bottom:1px dashed var(--border)}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.vocab-card{background:var(--card-2);border:1px solid var(--border);border-top:3px solid var(--teal);border-radius:12px;padding:15px 17px;box-shadow:var(--shadow-soft)}
+.vocab-card.violet{border-top-color:var(--violet)}.vocab-card.rose{border-top-color:var(--rose)}.vocab-card.amber{border-top-color:var(--amber)}
+.vocab-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+.vocab-word{font-family:'Sora';font-weight:700;font-size:1.05rem;color:var(--text)}
+.vocab-pos{font-family:'Caveat',cursive;font-size:.9rem;color:var(--text-dim)}
+.vocab-trans{color:var(--text-soft);font-size:.9rem}
+.vocab-trans strong{color:var(--teal);font-weight:600}
+.vocab-example{margin-top:7px;padding-top:7px;border-top:1px dashed var(--border-soft);color:var(--text-dim);font-size:.83rem;font-style:italic}
+.postit{background:linear-gradient(135deg,#3b3450 0%,#463c60 100%);color:#f0ecff;border-radius:6px;padding:18px 22px 18px 28px;font-family:'Caveat',cursive;font-size:1.15rem;line-height:1.4;box-shadow:var(--shadow);border:1px solid var(--violet-soft);margin:24px 0;position:relative;transform:rotate(-.6deg)}
+.postit::before{content:'📌';position:absolute;top:-8px;left:16px;font-size:1.3rem}
+.postit.right{transform:rotate(.6deg)}
+.postit-label{font-family:'Sora';font-size:.8rem;font-weight:700;color:var(--amber);display:block;margin-bottom:4px;letter-spacing:.05em}
+.traps{background:var(--rose-soft);border:1px solid var(--rose);border-left:5px solid var(--rose);border-radius:14px;padding:20px 22px;margin:24px 0}
+.traps-title{font-family:'Sora';font-size:1.1rem;font-weight:700;color:var(--rose);margin-bottom:12px}
+.traps ul{list-style:none}
+.traps li{padding:9px 0;color:var(--text-soft);font-size:.91rem;border-bottom:1px dashed rgba(251,113,133,.22)}
+.traps li:last-child{border-bottom:none}
+.traps strong{color:var(--text)}.traps em{color:var(--rose);font-style:normal;font-weight:700}
+.glossary{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.gloss-item{background:var(--bg-deep);border:1px solid var(--border-soft);border-radius:10px;padding:13px 15px}
+.gloss-term{font-family:'Sora';font-weight:700;color:var(--sky);font-size:.95rem;display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px}
+.gloss-def{color:var(--text-soft);font-size:.85rem}
+.nav-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+.nav-links a{text-decoration:none;background:var(--teal);color:var(--bg-deep);padding:12px 22px;border-radius:12px;font-family:'Sora';font-weight:700;font-size:.9rem;transition:transform .15s}
+.nav-links a.ghost{background:var(--card-2);color:var(--text-soft);border:1px solid var(--border)}
+.nav-links a:hover{transform:translateY(-2px)}
+.save-panel{position:fixed;bottom:0;left:0;right:0;background:rgba(11,11,22,.96);backdrop-filter:blur(10px);border-top:1px solid var(--border);padding:8px 14px;z-index:60;display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;font-size:.8rem}
+.save-panel .status{color:var(--text-dim)}
+.save-panel button{background:var(--card-2);color:var(--text-soft);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-weight:700;font-size:.78rem;cursor:pointer}
+.save-panel button:hover{border-color:var(--sky);color:var(--text)}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;align-items:center;justify-content:center;padding:20px}
+.modal-bg.show{display:flex}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px;max-width:400px;width:100%}
+.modal h4{font-family:'Sora';color:var(--text);margin-bottom:10px}.modal p{color:var(--text-soft);font-size:.92rem;margin-bottom:18px}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end}
+.modal-actions button{border-radius:10px;padding:9px 18px;font-family:'Sora';font-weight:700;font-size:.85rem;cursor:pointer;border:none}
+.modal-actions .cancel{background:var(--card-2);color:var(--text-soft);border:1px solid var(--border)}
+.modal-actions .confirm{background:var(--rose);color:var(--bg-deep)}
+.readbtn{margin-top:10px;background:var(--card-2);border:1px solid var(--border);color:var(--text-soft);border-radius:8px;padding:6px 12px;font-family:'Sora';font-weight:600;font-size:.8rem;cursor:pointer}
+.readbtn.done{background:var(--teal);color:var(--bg-deep);border-color:var(--teal)}
+@media(max-width:600px){main{padding:22px 14px}.section-title{font-size:1.4rem}.formula-row{grid-template-columns:1fr;gap:6px}}
+</style>
+</head>
+<body>
+<header>
+  <span class="badge">Resumo Interativo</span>
+  <h1>Self-Care Map</h1>
+  <p class="subtitle">grammar + vocabulary · with audio 🔊</p>
+  <span class="unit-tag">UNIT 6 · Breakthrough — clique no 🔊 em toda frase para ouvir</span>
+</header>
+<div class="tabs-wrap"><div class="tabs" id="tabs">
+  <button class="tab active" data-tab="second">🌤️ Second</button>
+  <button class="tab" data-tab="third">⏪ Third</button>
+  <button class="tab" data-tab="mixed">🔀 Mixed</button>
+  <button class="tab" data-tab="habits">🌱 Healthy Habits</button>
+  <button class="tab" data-tab="mental">🧠 Mental Health</button>
+  <button class="tab" data-tab="glossary">📖 Glossary</button>
+</div></div>
+<main>
+
+<section class="tab-content active" id="tab-second">
+  <div class="section-head"><h2 class="section-title">Second Conditional</h2><p class="section-sub">~ imaginary situations in the present ~</p></div>
+  <div class="cards-grid">
+    <div class="card"><span class="card-tag">💡 Concept</span><h3 class="card-title">O "se" imaginário</h3><p class="card-text">Fala de situações <strong>irreais ou improváveis</strong> no presente/futuro. É o "se fosse assim..." que sabemos que não é a realidade.</p></div>
+    <div class="card teal"><span class="card-tag">⚙️ Formula</span><h3 class="card-title">If + passado, would + verbo</h3><p class="card-text">O "if" leva o verbo ao <strong>passado simples</strong>; o resultado usa <em>would / could / might</em> + verbo base.</p></div>
+    <div class="card violet"><span class="card-tag">⭐ Detalhe</span><h3 class="card-title">"were" para todos</h3><p class="card-text">No inglês formal, o verbo <em>to be</em> vira <strong>were</strong> em todas as pessoas: <em>"If I were you..."</em></p></div>
+  </div>
+  <div class="formula-box"><h3>🧬 Fórmula e exemplos</h3>
+    <div class="formula-row"><div class="tense-label">Second Cond.</div><span class="formula">If + simple past , would/could/might + base verb</span></div>
+    <div class="ex-line"><button class="audio-btn" onclick="speak('If I had more free time, I would exercise every day.')">🔊</button><span class="en">If I had more free time, I would exercise every day.<span class="pt">Se eu tivesse mais tempo livre, eu me exercitaria todo dia.</span></span></div>
+    <div class="ex-line"><button class="audio-btn" onclick="speak('If she practiced meditation, she might feel calmer.')">🔊</button><span class="en">If she practiced meditation, she might feel calmer.<span class="pt">Se ela praticasse meditação, talvez se sentisse mais calma.</span></span></div>
+    <div class="ex-line"><button class="audio-btn" onclick="speak('If I were you, I would talk to a psychologist.')">🔊</button><span class="en">If I were you, I would talk to a psychologist.<span class="pt">Se eu fosse você, eu falaria com um psicólogo.</span></span></div>
+  </div>
+  <div class="postit"><span class="postit-label">⚡ Dica de prova</span>Second Conditional = presente imaginário. Se a frase fala de "e se fosse..." AGORA, e não do passado, é Second (would + verbo, sem "have").</div>
+</section>
+
+<section class="tab-content" id="tab-third">
+  <div class="section-head"><h2 class="section-title">Third Conditional</h2><p class="section-sub">~ the past that did NOT happen ~</p></div>
+  <div class="cards-grid">
+    <div class="card"><span class="card-tag">💡 Concept</span><h3 class="card-title">O arrependimento</h3><p class="card-text">Fala de um passado que <strong>não aconteceu</strong> — o "se eu tivesse feito diferente...". É imaginar outro passado.</p></div>
+    <div class="card teal"><span class="card-tag">⚙️ Formula</span><h3 class="card-title">If + past perfect, would have + particípio</h3><p class="card-text">O "if" usa <strong>had + particípio</strong>; o resultado usa <em>would have + particípio passado</em>.</p></div>
+    <div class="card violet"><span class="card-tag">⭐ Detalhe</span><h3 class="card-title">might / could have</h3><p class="card-text">Para mostrar menos certeza, troque <em>would</em> por <strong>might</strong> ou <strong>could</strong>: "you might have learned".</p></div>
+  </div>
+  <div class="formula-box"><h3>🧬 Fórmula e exemplos</h3>
+    <div class="formula-row"><div class="tense-label">Third Cond.</div><span class="formula">If + had + past participle , would have + past participle</span></div>
+    <div class="ex-line"><button class="audio-btn" onclick="speak('If Cathy had not gone swimming, she would not have gotten an earache.')">🔊</button><span class="en">If Cathy hadn't gone swimming, she wouldn't have gotten an earache.<span class="pt">Se a Cathy não tivesse ido nadar, não teria tido dor de ouvido.</span></span></div>
+    <div class="ex-line"><button class="audio-btn" onclick="speak('If you had exercised this morning, you would have felt better.')">🔊</button><span class="en">If you had exercised this morning, you would have felt better.<span class="pt">Se você tivesse se exercitado de manhã, teria se sentido melhor.</span></span></div>
+    <div class="ex-line"><button class="audio-btn" onclick="speak('If you had gone to yoga, you might have learned to relax.')">🔊</button><span class="en">If you had gone to yoga, you might have learned to relax.<span class="pt">Se você tivesse ido ao yoga, talvez tivesse aprendido a relaxar.</span></span></div>
+  </div>
+  <div class="postit right"><span class="postit-label">⚡ Contrações da fala</span>'d = had OU would. No "if" é <strong>had</strong>; no resultado é <strong>would</strong>. Ex.: "If I'd known, I'd have helped." (had known / would have helped)</div>
+  <div class="traps"><h3 class="traps-title">⚠ Pegadinhas</h3><ul>
+    <li><strong>Esquecer o "have":</strong> é <em>would have gone</em>, não "would gone".</li>
+    <li><strong>Particípio, não passado simples:</strong> <em>would have gone</em> (✓), "would have went" (✗).</li>
+    <li><strong>Nada de "would" depois do "if":</strong> use o past perfect (had + particípio).</li>
+  </ul></div>
+</section>
+
+<section class="tab-content" id="tab-mixed">
+  <div class="section-head"><h2 class="section-title">Mixed Conditionals</h2><p class="section-sub">~ mixing past and present ~</p></div>
+  <div class="formula-box"><h3>🅰️ Passado → resultado no PRESENTE</h3>
+    <div class="formula-row"><div class="tense-label">Mixed A</div><span class="formula">If + had + particípio , would + base verb (+ now)</span></div>
+    <div class="ex-line"><button class="audio-btn" onclick="speak('If I had not started seeing a psychologist, I would be much less balanced now.')">🔊</button><span class="en">If I hadn't started seeing a psychologist, I would be much less balanced now.<span class="pt">Se eu não tivesse começado a ver um psicólogo, estaria bem menos equilibrado agora.</span></span></div>
+    <div class="ex-line"><button class="audio-btn" onclick="speak('If she had prepared lunch, she would feel much better now.')">🔊</button><span class="en">If she had prepared lunch, she would feel much better now.<span class="pt">Se ela tivesse preparado o almoço, se sentiria bem melhor agora.</span></span></div>
+  </div>
+  <div class="formula-box" style="border-left-color:var(--rose)"><h3 style="color:var(--rose)">🅱️ Geral/presente → resultado no PASSADO</h3>
+    <div class="formula-row"><div class="tense-label">Mixed B</div><span class="formula">If + simple past , would have + particípio</span></div>
+    <div class="ex-line"><button class="audio-btn" onclick="speak('If you had a healthier diet, you would have done better in the race.')">🔊</button><span class="en">If you had a healthier diet, you would have done better in the race.<span class="pt">Se você tivesse uma dieta mais saudável, teria ido melhor na corrida.</span></span></div>
+    <div class="ex-line"><button class="audio-btn" onclick="speak('If they did not charge so much, they would not have gone out of business.')">🔊</button><span class="en">If they didn't charge so much, they wouldn't have gone out of business.<span class="pt">Se eles não cobrassem tão caro, não teriam falido.</span></span></div>
+  </div>
+  <div class="postit"><span class="postit-label">⚡ A pista que salva</span>Achou <strong>now</strong> ou <strong>today</strong> no resultado? É Mixed A (would + verbo). Resultado no passado com "have"? É Mixed B (would have + particípio).</div>
+</section>
+
+<section class="tab-content" id="tab-habits">
+  <div class="section-head"><h2 class="section-title">Healthy Habits</h2><p class="section-sub">~ collocations: verbo + substantivo ~</p></div>
+  <div class="vocab-section"><h3 class="vocab-section-title">🌱 Collocations que caem na prova</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card"><div class="vocab-top"><div class="vocab-word">maintain a healthy diet</div><button class="audio-btn" onclick="speak('maintain a healthy diet')">🔊</button></div><div class="vocab-trans"><strong>manter uma dieta saudável</strong></div></div>
+      <div class="vocab-card"><div class="vocab-top"><div class="vocab-word">practice meditation</div><button class="audio-btn" onclick="speak('practice meditation')">🔊</button></div><div class="vocab-trans"><strong>praticar meditação</strong></div></div>
+      <div class="vocab-card"><div class="vocab-top"><div class="vocab-word">keep a journal</div><button class="audio-btn" onclick="speak('keep a journal')">🔊</button></div><div class="vocab-trans"><strong>manter um diário</strong></div></div>
+      <div class="vocab-card"><div class="vocab-top"><div class="vocab-word">limit screen time</div><button class="audio-btn" onclick="speak('limit screen time')">🔊</button></div><div class="vocab-trans"><strong>limitar o tempo de tela</strong></div></div>
+      <div class="vocab-card"><div class="vocab-top"><div class="vocab-word">establish a routine</div><button class="audio-btn" onclick="speak('establish a routine')">🔊</button></div><div class="vocab-trans"><strong>estabelecer uma rotina</strong></div></div>
+      <div class="vocab-card"><div class="vocab-top"><div class="vocab-word">appreciate nature</div><button class="audio-btn" onclick="speak('appreciate nature')">🔊</button></div><div class="vocab-trans"><strong>apreciar a natureza</strong></div></div>
+      <div class="vocab-card"><div class="vocab-top"><div class="vocab-word">exercise regularly</div><button class="audio-btn" onclick="speak('exercise regularly')">🔊</button></div><div class="vocab-trans"><strong>exercitar-se com frequência</strong></div></div>
+      <div class="vocab-card"><div class="vocab-top"><div class="vocab-word">get regular checkups</div><button class="audio-btn" onclick="speak('get regular checkups')">🔊</button></div><div class="vocab-trans"><strong>fazer check-ups regulares</strong></div></div>
+      <div class="vocab-card"><div class="vocab-top"><div class="vocab-word">keep a schedule</div><button class="audio-btn" onclick="speak('keep a schedule')">🔊</button></div><div class="vocab-trans"><strong>seguir um cronograma</strong></div></div>
+      <div class="vocab-card"><div class="vocab-top"><div class="vocab-word">reward yourself</div><button class="audio-btn" onclick="speak('reward yourself')">🔊</button></div><div class="vocab-trans"><strong>recompensar-se</strong></div></div>
+    </div>
+  </div>
+  <div class="postit right"><span class="postit-label">⚡ Não erre o verbo!</span>É <strong>maintain</strong> a diet (não "do"), <strong>keep</strong> a journal (não "make"), <strong>limit</strong> screen time (não "keep"). O verbo certo vale a questão.</div>
+</section>
+
+<section class="tab-content" id="tab-mental">
+  <div class="section-head"><h2 class="section-title">Mental Health</h2><p class="section-sub">~ vocabulary of care and recovery ~</p></div>
+  <div class="vocab-section"><h3 class="vocab-section-title">🧠 Palavras-chave</h3>
+    <div class="vocab-grid">
+      <div class="vocab-card violet"><div class="vocab-top"><div><div class="vocab-word">balance</div><span class="vocab-pos">noun</span></div><button class="audio-btn" onclick="speak('balance')">🔊</button></div><div class="vocab-trans"><strong>equilíbrio</strong></div><div class="vocab-example">"a healthy work-life balance"</div></div>
+      <div class="vocab-card violet"><div class="vocab-top"><div><div class="vocab-word">depression</div><span class="vocab-pos">noun</span></div><button class="audio-btn" onclick="speak('depression')">🔊</button></div><div class="vocab-trans"><strong>depressão</strong> (uma <em>condition</em>, não só tristeza)</div></div>
+      <div class="vocab-card violet"><div class="vocab-top"><div><div class="vocab-word">self-esteem</div><span class="vocab-pos">noun</span></div><button class="audio-btn" onclick="speak('self-esteem')">🔊</button></div><div class="vocab-trans"><strong>autoestima</strong></div></div>
+      <div class="vocab-card violet"><div class="vocab-top"><div><div class="vocab-word">psychologist</div><span class="vocab-pos">noun</span></div><button class="audio-btn" onclick="speak('psychologist')">🔊</button></div><div class="vocab-trans"><strong>psicólogo(a)</strong> (a pessoa)</div></div>
+      <div class="vocab-card violet"><div class="vocab-top"><div><div class="vocab-word">therapy</div><span class="vocab-pos">noun</span></div><button class="audio-btn" onclick="speak('therapy')">🔊</button></div><div class="vocab-trans"><strong>terapia</strong> (o tratamento)</div></div>
+      <div class="vocab-card violet"><div class="vocab-top"><div><div class="vocab-word">recovery</div><span class="vocab-pos">noun</span></div><button class="audio-btn" onclick="speak('recovery')">🔊</button></div><div class="vocab-trans"><strong>recuperação</strong> (melhorar)</div></div>
+      <div class="vocab-card violet"><div class="vocab-top"><div><div class="vocab-word">treatment</div><span class="vocab-pos">noun</span></div><button class="audio-btn" onclick="speak('treatment')">🔊</button></div><div class="vocab-trans"><strong>tratamento</strong></div></div>
+      <div class="vocab-card violet"><div class="vocab-top"><div><div class="vocab-word">bullying</div><span class="vocab-pos">noun</span></div><button class="audio-btn" onclick="speak('bullying')">🔊</button></div><div class="vocab-trans"><strong>bullying</strong> (intimidação)</div></div>
+      <div class="vocab-card violet"><div class="vocab-top"><div><div class="vocab-word">suffer</div><span class="vocab-pos">verb</span></div><button class="audio-btn" onclick="speak('suffer')">🔊</button></div><div class="vocab-trans"><strong>sofrer</strong></div></div>
+      <div class="vocab-card violet"><div class="vocab-top"><div><div class="vocab-word">prevention</div><span class="vocab-pos">noun</span></div><button class="audio-btn" onclick="speak('prevention')">🔊</button></div><div class="vocab-trans"><strong>prevenção</strong></div></div>
+      <div class="vocab-card violet"><div class="vocab-top"><div><div class="vocab-word">condition</div><span class="vocab-pos">noun</span></div><button class="audio-btn" onclick="speak('condition')">🔊</button></div><div class="vocab-trans"><strong>condição</strong> (de saúde)</div></div>
+      <div class="vocab-card violet"><div class="vocab-top"><div><div class="vocab-word">loss</div><span class="vocab-pos">noun</span></div><button class="audio-btn" onclick="speak('loss')">🔊</button></div><div class="vocab-trans"><strong>perda</strong> (ex.: de alguém)</div></div>
+    </div>
+  </div>
+  <div class="vocab-section"><h3 class="vocab-section-title">💬 Frases úteis (do exercício de matching)</h3>
+    <div class="ex-line"><button class="audio-btn" onclick="speak('I find that meditation helps me stay mentally focused and balanced.')">🔊</button><span class="en">I find that meditation helps me stay mentally focused and balanced.<span class="pt">Acho que a meditação me ajuda a ficar focado e equilibrado.</span></span></div>
+    <div class="ex-line"><button class="audio-btn" onclick="speak('I am very sorry for your loss. This must be a hard time for you.')">🔊</button><span class="en">I'm very sorry for your loss — this must be a hard time for you.<span class="pt">Sinto muito pela sua perda — deve ser um momento difícil.</span></span></div>
+    <div class="ex-line"><button class="audio-btn" onclick="speak('My cousin started seeing a psychologist, and it helped her a lot.')">🔊</button><span class="en">My cousin started seeing a psychologist, and it helped her a lot.<span class="pt">Minha prima começou a ver uma psicóloga, e isso a ajudou muito.</span></span></div>
+  </div>
+  <div class="traps"><h3 class="traps-title">⚠ Não confunda</h3><ul>
+    <li><strong>psychologist</strong> = a pessoa · <strong>psychology</strong> = a ciência · <strong>therapy</strong> = o tratamento.</li>
+    <li><strong>recovery</strong> (recuperação) ≠ <em>discovery</em> (descoberta). Parecidas, sentidos diferentes.</li>
+    <li><strong>depression</strong> é uma <em>condition</em>, diferente de <em>sadness</em> (tristeza passageira).</li>
+  </ul></div>
+</section>
+
+<section class="tab-content" id="tab-glossary">
+  <div class="section-head"><h2 class="section-title">Glossary</h2><p class="section-sub">~ all key terms with audio ~</p></div>
+  <h3 class="vocab-section-title">🔤 Grammar terms</h3>
+  <div class="glossary" style="margin-bottom:26px">
+    <div class="gloss-item"><div class="gloss-term">second conditional <button class="audio-btn" onclick="speak('second conditional')">🔊</button></div><div class="gloss-def">Situação imaginária do presente. If + passado, would + verbo.</div></div>
+    <div class="gloss-item"><div class="gloss-term">third conditional <button class="audio-btn" onclick="speak('third conditional')">🔊</button></div><div class="gloss-def">Passado que não aconteceu. If + past perfect, would have + particípio.</div></div>
+    <div class="gloss-item"><div class="gloss-term">mixed conditional <button class="audio-btn" onclick="speak('mixed conditional')">🔊</button></div><div class="gloss-def">Mistura passado e presente numa frase só.</div></div>
+    <div class="gloss-item"><div class="gloss-term">past perfect <button class="audio-btn" onclick="speak('past perfect')">🔊</button></div><div class="gloss-def">had + particípio passado (had gone, had prepared).</div></div>
+    <div class="gloss-item"><div class="gloss-term">past participle <button class="audio-btn" onclick="speak('past participle')">🔊</button></div><div class="gloss-def">3ª forma do verbo: gone, done, met, been, gotten.</div></div>
+  </div>
+  <h3 class="vocab-section-title">🧠 Health &amp; habits</h3>
+  <div class="glossary">
+    <div class="gloss-item"><div class="gloss-term">recovery <button class="audio-btn" onclick="speak('recovery')">🔊</button></div><div class="gloss-def">recuperação</div></div>
+    <div class="gloss-item"><div class="gloss-term">treatment <button class="audio-btn" onclick="speak('treatment')">🔊</button></div><div class="gloss-def">tratamento</div></div>
+    <div class="gloss-item"><div class="gloss-term">self-esteem <button class="audio-btn" onclick="speak('self-esteem')">🔊</button></div><div class="gloss-def">autoestima</div></div>
+    <div class="gloss-item"><div class="gloss-term">psychologist <button class="audio-btn" onclick="speak('psychologist')">🔊</button></div><div class="gloss-def">psicólogo(a)</div></div>
+    <div class="gloss-item"><div class="gloss-term">maintain a healthy diet <button class="audio-btn" onclick="speak('maintain a healthy diet')">🔊</button></div><div class="gloss-def">manter uma dieta saudável</div></div>
+    <div class="gloss-item"><div class="gloss-term">keep a journal <button class="audio-btn" onclick="speak('keep a journal')">🔊</button></div><div class="gloss-def">manter um diário</div></div>
+    <div class="gloss-item"><div class="gloss-term">limit screen time <button class="audio-btn" onclick="speak('limit screen time')">🔊</button></div><div class="gloss-def">limitar o tempo de tela</div></div>
+    <div class="gloss-item"><div class="gloss-term">establish a routine <button class="audio-btn" onclick="speak('establish a routine')">🔊</button></div><div class="gloss-def">estabelecer uma rotina</div></div>
+  </div>
+  <div class="nav-links">
+    <a href="ingles_simulado.html">📝 Ir para o Simulado →</a>
+    <a href="index.html" class="ghost">↩ Início</a>
+  </div>
+</section>
+
+</main>
+<div class="save-panel">
+  <span class="status" id="saveStatus">💾 leitura livre</span>
+  <button onclick="exportData()">📥 Exportar</button>
+  <button onclick="document.getElementById('importFile').click()">📤 Importar</button>
+  <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
+  <button onclick="askReset()">🗑️ Zerar tudo</button>
+</div>
+<div class="modal-bg" id="modalBg"><div class="modal"><h4>Zerar tudo?</h4><p>Isso volta o resumo para a aba inicial. Não há respostas para perder aqui.</p>
+<div class="modal-actions"><button class="cancel" onclick="closeModal()">Cancelar</button><button class="confirm" id="modalConfirm">Zerar</button></div></div></div>
+<script>
+var KEY='ig9_selfcare_resumo_v1';
+var mem={tab:'second'};
+var store={get:function(){try{var r=localStorage.getItem(KEY);return r?JSON.parse(r):null;}catch(e){return mem._s||null;}},set:function(o){try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){mem._s=o;}}};
+function save(){store.set({tab:mem.tab});var d=new Date();document.getElementById('saveStatus').textContent='💾 salvo '+d.toLocaleTimeString('pt-BR').slice(0,5);}
+function speak(t){if(!('speechSynthesis'in window))return;var u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=0.82;speechSynthesis.cancel();speechSynthesis.speak(u);}
+function activate(name){document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('active',t.dataset.tab===name);});document.querySelectorAll('.tab-content').forEach(function(c){c.classList.remove('active');});document.getElementById('tab-'+name).classList.add('active');mem.tab=name;save();}
+document.querySelectorAll('.tab').forEach(function(tab){tab.addEventListener('click',function(){activate(tab.dataset.tab);window.scrollTo({top:0,behavior:'smooth'});});});
+function exportData(){var blob=new Blob([JSON.stringify(store.get()||{},null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='resumo_selfcare_backup.json';a.click();}
+function importData(ev){var f=ev.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(){try{store.set(JSON.parse(r.result));location.reload();}catch(e){}};r.readAsText(f);}
+function askReset(){document.getElementById('modalBg').classList.add('show');document.getElementById('modalConfirm').onclick=function(){try{localStorage.removeItem(KEY);}catch(e){}location.reload();};}
+function closeModal(){document.getElementById('modalBg').classList.remove('show');}
+(function(){var s=store.get();if(s&&s.tab){activate(s.tab);}})();
+</script>
+</body>
+</html>
