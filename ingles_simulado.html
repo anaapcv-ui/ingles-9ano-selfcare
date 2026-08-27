@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulado — Taking Care of Ourselves — Inglês 9º ano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0e1526;--bg-deep:#080d18;--card:#15203a;--card-2:#1c2a48;--border:#2c3e62;--border-soft:#233553;
+  --text:#eaf0fb;--text-dim:#93a3c4;--text-soft:#bccbe6;
+  --navy:#1e3a68;--red:#ef4444;--red-soft:rgba(239,68,68,.16);
+  --teal:#34d399;--teal-soft:rgba(52,211,153,.15);--violet:#a78bfa;--violet-soft:rgba(167,139,250,.15);
+  --blue:#38bdf8;--blue-soft:rgba(56,189,248,.15);--amber:#fbbf24;--gray:#5a6a89;
+  --shadow:0 10px 30px rgba(0,0,0,.5);--shadow-soft:0 4px 16px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;padding-bottom:80px}
+header{text-align:center;padding:40px 20px 24px;background:linear-gradient(160deg,var(--navy) 0,var(--bg-deep) 100%);border-bottom:3px solid var(--red)}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,.25);border:1px solid var(--red);color:#fecaca;padding:6px 15px;border-radius:99px;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.badge::before{content:'📝'}
+h1{font-family:'Sora';font-size:clamp(1.8rem,6vw,3rem);font-weight:800;letter-spacing:-.02em;color:#fff;margin-bottom:8px}
+.subtitle{font-family:'Caveat',cursive;font-size:1.4rem;color:#c7d2e8}
+.unit-tag{display:block;margin-top:8px;font-size:.8rem;color:#9fb0cf}
+main{max-width:820px;margin:0 auto;padding:24px 18px}
+.info{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--red);border-radius:14px;padding:18px 20px;margin-bottom:22px;font-size:.93rem;color:var(--text-soft)}
+.info strong{color:var(--text)}
+.progress-mini{position:sticky;top:0;z-index:40;background:rgba(14,21,38,.95);backdrop-filter:blur(10px);padding:10px 18px;border-bottom:1px solid var(--border);font-size:.82rem;color:var(--text-dim);text-align:center;font-weight:700}
+.codebox{display:none;background:var(--card);border:2px solid var(--amber);border-radius:14px;padding:20px;margin-bottom:22px;text-align:center}
+.codebox.show{display:block}
+.codebox .score{font-family:'Sora';font-size:1.4rem;font-weight:800;color:var(--teal);margin-bottom:6px}
+.codebox .code{font-family:'Sora';font-size:1.8rem;font-weight:800;letter-spacing:.08em;color:var(--amber);margin:8px 0}
+.codebox p{font-size:.87rem;color:var(--text-dim)}
+.gate{display:none;background:var(--card);border:1px dashed var(--amber);border-radius:14px;padding:18px 20px;margin-bottom:20px}
+.gate.show{display:block}
+.gate label{display:block;font-size:.9rem;color:var(--text-soft);margin-bottom:8px}
+.gate input{background:var(--bg-deep);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:'Sora';font-size:1rem;padding:10px 12px;width:180px;text-transform:uppercase;letter-spacing:.06em}
+.gate button{background:var(--amber);color:var(--bg-deep);border:none;border-radius:10px;padding:11px 18px;font-family:'Sora';font-weight:700;cursor:pointer;margin-left:8px}
+.gate .err{color:var(--red);font-size:.82rem;margin-top:8px;display:none}
+.q{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 22px;margin-bottom:18px;box-shadow:var(--shadow-soft)}
+.q-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.q-num{font-family:'Caveat',cursive;font-size:1.1rem;color:var(--text-dim)}
+.type-badge{font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;padding:3px 9px;border-radius:6px}
+.type-mc{background:var(--blue-soft);color:var(--blue)}
+.type-fill{background:var(--teal-soft);color:var(--teal)}
+.type-reorder{background:var(--violet-soft);color:var(--violet)}
+.q-stem{font-family:'Sora';font-size:1.03rem;font-weight:600;color:var(--text);margin-bottom:14px;line-height:1.45}
+.q-stem em{color:var(--amber);font-style:normal}
+.opt{display:flex;align-items:flex-start;gap:11px;padding:11px 14px;background:var(--bg-deep);border:1px solid var(--border-soft);border-radius:10px;margin-bottom:9px;cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--blue)}
+.opt.sel{border-color:var(--blue);background:var(--blue-soft)}
+.opt .letter{flex-shrink:0;width:26px;height:26px;border-radius:7px;background:var(--card-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:700;font-size:.85rem;color:var(--text-soft)}
+.opt.sel .letter{background:var(--blue);color:var(--bg-deep)}
+.opt .txt{font-size:.93rem;color:var(--text-soft);padding-top:2px}
+.opt.locked{pointer-events:none}
+.opt.correct{border-color:var(--teal);background:var(--teal-soft)}.opt.correct .letter{background:var(--teal);color:var(--bg-deep)}
+.opt.wrongpick{border-color:var(--red);background:var(--red-soft)}.opt.wrongpick .letter{background:var(--red);color:#fff}
+.opt.dim{opacity:.5}
+.fill-input{width:100%;background:var(--bg-deep);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:'Sora';font-size:.98rem;padding:11px 13px}
+.fill-input:focus{outline:none;border-color:var(--teal)}
+.fill-input.correct{border-color:var(--teal);background:var(--teal-soft)}
+.fill-input.wrong{border-color:var(--red);background:var(--red-soft)}
+.reorder-answer{min-height:44px;background:var(--bg-deep);border:1px dashed var(--border);border-radius:10px;padding:8px;margin-bottom:10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.reorder-answer:empty::before{content:'clique nas palavras na ordem certa…';color:var(--text-dim);font-size:.85rem;font-style:italic;font-family:'Nunito'}
+.chip{background:var(--card-2);border:1px solid var(--border);border-radius:8px;padding:6px 11px;font-family:'Sora';font-size:.88rem;color:var(--text);cursor:pointer;transition:transform .1s,border-color .15s;user-select:none}
+.chip:hover{border-color:var(--violet)}
+.chip.used{opacity:.3;pointer-events:none}
+.chip-answer{background:var(--violet-soft);border-color:var(--violet);color:var(--text)}
+.reorder-pool{display:flex;flex-wrap:wrap;gap:6px}
+.reorder-reset{margin-top:8px;background:var(--card-2);border:1px solid var(--border);color:var(--text-dim);border-radius:8px;padding:5px 12px;font-size:.78rem;font-weight:700;cursor:pointer}
+.answer-reveal{display:none;margin-top:10px;padding:10px 13px;border-radius:8px;background:var(--card-2);border-left:3px solid var(--teal);color:var(--text-soft);font-size:.87rem}
+.answer-reveal.show{display:block}
+.answer-reveal b{color:var(--teal)}
+.why{display:none;margin-top:8px;font-size:.85rem;padding:10px 12px;border-radius:8px;background:var(--card-2);border-left:3px solid var(--gray);color:var(--text-dim)}
+.why.showw{display:block}.why.good{border-left-color:var(--teal);color:var(--text-soft)}.why b{color:var(--text)}
+.submit-btn{width:100%;background:var(--red);color:#fff;border:none;border-radius:12px;padding:15px;font-family:'Sora';font-weight:800;font-size:1.05rem;cursor:pointer;margin:8px 0 20px;transition:transform .1s,opacity .2s}
+.submit-btn:disabled{opacity:.4;cursor:not-allowed}
+.submit-btn:not(:disabled):hover{transform:translateY(-2px)}
+.nav-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.nav-links a{text-decoration:none;background:var(--teal);color:var(--bg-deep);padding:12px 22px;border-radius:12px;font-family:'Sora';font-weight:700;font-size:.9rem}
+.nav-links a.ghost{background:var(--card-2);color:var(--text-soft);border:1px solid var(--border)}
+.save-panel{position:fixed;bottom:0;left:0;right:0;background:rgba(8,13,24,.96);backdrop-filter:blur(10px);border-top:1px solid var(--border);padding:8px 14px;z-index:60;display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;font-size:.8rem}
+.save-panel .status{color:var(--text-dim)}
+.save-panel button{background:var(--card-2);color:var(--text-soft);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-weight:700;font-size:.78rem;cursor:pointer}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;align-items:center;justify-content:center;padding:20px}
+.modal-bg.show{display:flex}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px;max-width:400px;width:100%}
+.modal h4{font-family:'Sora';color:var(--text);margin-bottom:10px}.modal p{color:var(--text-soft);font-size:.92rem;margin-bottom:18px}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end}
+.modal-actions button{border-radius:10px;padding:9px 18px;font-family:'Sora';font-weight:700;font-size:.85rem;cursor:pointer;border:none}
+.modal-actions .cancel{background:var(--card-2);color:var(--text-soft);border:1px solid var(--border)}
+.modal-actions .confirm{background:var(--red);color:#fff}
+@media(max-width:600px){main{padding:20px 14px}.q{padding:18px}}
+</style>
+</head>
+<body>
+<header>
+  <span class="badge">Simulado Oficial</span>
+  <h1>Simulado — Unit 6</h1>
+  <p class="subtitle">26 questions · 3 formats · exam style</p>
+  <span class="unit-tag">Prova Mensal 1 · 3º TRI · Conditionals · Healthy Habits · Mental Health</span>
+</header>
+<div class="progress-mini" id="progMini">Respondidas: 0 / 26</div>
+<main>
+  <div class="info">São <strong>26 questões</strong> em 3 formatos: <span class="type-badge type-mc">Multiple Choice</span> (marque uma), <span class="type-badge type-fill">Fill in the Blank</span> (escreva a resposta) e <span class="type-badge type-reorder">Reorder</span> (clique nas palavras na ordem certa). Responda TODAS e clique em <strong>Finalizar</strong>. Você recebe a nota e um <strong>código SIM</strong> — digite-o para abrir o gabarito comentado.</div>
+  <div class="codebox" id="codebox"><div class="score" id="scoreTxt"></div><div class="code" id="codeTxt"></div><p>📌 Anote o código SIM. Ele libera o gabarito e não muda quando você reabre.</p></div>
+  <div class="gate" id="gate"><label>🔑 Digite o código <strong>SIM</strong> para ver o gabarito:</label><input type="text" id="gateInput" placeholder="SIM-XX-YY" maxlength="9"><button onclick="checkGate()">Abrir gabarito</button><div class="err" id="gateErr">Código incorreto. Confira as letras (sem espaços).</div></div>
+  <div id="sim"></div>
+  <button class="submit-btn" id="submitBtn" disabled>Finalizar simulado ✓</button>
+  <div class="nav-links"><a href="index.html">🏠 Voltar ao início</a><a href="ingles_resumo.html" class="ghost">🗺️ Revisar o Resumo</a></div>
+</main>
+<div class="save-panel">
+  <span class="status" id="saveStatus">💾 salvando automaticamente…</span>
+  <button onclick="exportData()">📥 Exportar</button>
+  <button onclick="document.getElementById('importFile').click()">📤 Importar</button>
+  <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
+  <button onclick="askReset()">🗑️ Zerar tudo</button>
+</div>
+<div class="modal-bg" id="modalBg"><div class="modal"><h4>Zerar tudo?</h4><p>Isso apaga suas respostas, a nota e o código deste simulado. Não dá para desfazer.</p>
+<div class="modal-actions"><button class="cancel" onclick="closeModal()">Cancelar</button><button class="confirm" id="modalConfirm">Zerar</button></div></div></div>
+<script>
+var KEY='ig9_selfcare_simulado_v1';
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function seededShuffle(arr,seed){var a=arr.slice();var rnd=mulberry32(seed+7);for(var i=a.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var tmp=a[i];a[i]=a[j];a[j]=tmp;}return a;}
+function norm(s){return (s||'').toLowerCase().trim().replace(/[.,;!?\/]/g,' ').replace(/\s+/g,' ').trim();}
+/* type: mc | fill | reorder */
+var QUESTIONS=[
+ {type:'mc',stem:'Complete: "If I ___ the answer, I ___ tell you." (imaginary present)',opts:[{t:'knew / would',correct:true,why:'Second Conditional: if + passado (knew) + would + verbo base.'},{t:'know / will',correct:false,why:'Isso é First Conditional (real); a frase é imaginária.'},{t:'had known / would have',correct:false,why:'Isso é Third Conditional (passado que não aconteceu).'},{t:'knew / will',correct:false,why:'Com "knew" no if, o resultado é "would", não "will".'}]},
+ {type:'fill',stem:'Second Conditional — write the verbs: "If she ___ (practice) meditation, she ___ (feel) calmer." (2 palavras, ex.: practiced / would feel)',accept:['practiced would feel','practised would feel'],answer:'practiced / would feel'},
+ {type:'reorder',stem:'Put in order to make a Second Conditional:',words:['If','I','had','more','time','I','would','exercise'],answer:'If I had more time I would exercise'},
+ {type:'mc',stem:'Which is a correct Third Conditional?',opts:[{t:"If you had exercised, you would have felt better.",correct:true,why:'if + past perfect (had exercised) + would have + particípio (have felt).'},{t:"If you exercised, you would feel better.",correct:false,why:'Second Conditional (presente imaginário), não Third.'},{t:"If you would have exercised, you had felt better.",correct:false,why:'"would have" nunca vai depois do "if".'},{t:"If you have exercised, you will feel better.",correct:false,why:'First Conditional (real).'}]},
+ {type:'fill',stem:'Third Conditional — complete: "If they hadn\'t stayed up late, I ___ in." (they DID stay up; use not + sleep) (ex.: wouldn\'t have slept)',accept:["wouldn't have slept","would not have slept"],answer:"wouldn't have slept"},
+ {type:'mc',stem:'To sound LESS certain in a Third Conditional, "would" can become:',opts:[{t:'might',correct:true,why:'might/could have mostram menos certeza: "might have learned".'},{t:'will',correct:false,why:'"will" não combina com have+particípio no condicional de passado.'},{t:'must',correct:false,why:'"must" indica certeza/obrigação.'},{t:'shall',correct:false,why:'"shall" não é o modal de incerteza aqui.'}]},
+ {type:'reorder',stem:'Put in order (Third Conditional):',words:['If','they','had','studied','they','would','have','passed'],answer:'If they had studied they would have passed'},
+ {type:'mc',stem:'Mixed conditional (past → present now): "If I ___ therapy, I ___ less balanced now."',opts:[{t:"hadn't started / would be",correct:true,why:'Mixed A: if + past perfect + would + verbo base. "now" = presente.'},{t:"hadn't started / would have been",correct:false,why:'"now" pede resultado no presente (would be), não no passado.'},{t:"didn't start / would be",correct:false,why:'A causa é no passado: use "hadn\'t started".'},{t:"wouldn't start / would be",correct:false,why:'Nada de "would" depois do "if".'}]},
+ {type:'fill',stem:'Healthy habits — write the missing verb: "You should ___ a healthy diet." (ex.: maintain)',accept:['maintain'],answer:'maintain'},
+ {type:'reorder',stem:'Put in order to give advice (healthy habit):',words:['You','should','keep','a','journal'],answer:'You should keep a journal'},
+ {type:'mc',stem:'What does "recovery" mean?',opts:[{t:'recuperação',correct:true,why:'recovery = recuperação (melhorar de um problema).'},{t:'descoberta',correct:false,why:'Descoberta = discovery. Parecido, mas diferente.'},{t:'recaída',correct:false,why:'Recaída = relapse.'},{t:'lembrança',correct:false,why:'Lembrança = memory.'}]},
+ {type:'fill',stem:'Translate to English: "psicólogo" (a pessoa que ajuda na saúde mental).',accept:['psychologist','a psychologist'],answer:'psychologist'},
+ {type:'mc',stem:'Mixed conditional (general → past): "If you ___ a healthier diet, you ___ better in the race."',opts:[{t:'had / would have done',correct:true,why:'Mixed B: if + passado simples (had) + would have + particípio.'},{t:'have / will do',correct:false,why:'First Conditional; a frase é hipotética.'},{t:'had had / would do',correct:false,why:'Aqui a causa é geral (had) e o resultado no passado (would have done).'},{t:'would have / did',correct:false,why:'Nada de "would" depois do "if".'}]},
+ {type:'fill',stem:'Complete with the correct verb: "___ screen time to sleep better." (ex.: limit)',accept:['limit'],answer:'limit'},
+ {type:'reorder',stem:'Put in order (Second Conditional, formal):',words:['If','I','were','you','I','would','see','a','psychologist'],answer:'If I were you I would see a psychologist'},
+ {type:'mc',stem:'"It\'s a common misunderstanding that sadness and depression are the same." This means they are:',opts:[{t:'different',correct:true,why:'"misunderstanding" = engano; a frase corrige: são diferentes.'},{t:'the same',correct:false,why:'É um ENGANO achar que são iguais.'},{t:'both curable in a day',correct:false,why:'A frase não fala de cura.'},{t:'unrelated to health',correct:false,why:'Depressão é uma condição de saúde.'}]},
+ {type:'fill',stem:'Mixed A — complete: "If she had prepared lunch, she ___ (feel) much better now."',accept:['would feel'],answer:'would feel'},
+ {type:'mc',stem:'Which verb correctly completes "___ a routine"?',opts:[{t:'establish',correct:true,why:'establish a routine = estabelecer uma rotina.'},{t:'do',correct:false,why:'"do a routine" não é a collocation do livro.'},{t:'practice',correct:false,why:'practice combina com meditation, não com routine.'},{t:'limit',correct:false,why:'limit combina com screen time.'}]},
+ {type:'reorder',stem:'Put in order (a healthy habit you do):',words:['I','practice','meditation','every','morning'],answer:'I practice meditation every morning'},
+ {type:'fill',stem:'Third Conditional — complete: "If Cathy hadn\'t gone swimming, she ___ (not/get) an earache."',accept:["wouldn't have gotten","would not have gotten","wouldn't have got","would not have got"],answer:"wouldn't have gotten"},
+ {type:'mc',stem:'"psychologist", "psychology", "therapy" — which one is the PERSON?',opts:[{t:'psychologist',correct:true,why:'psychologist = a pessoa (psicólogo).'},{t:'psychology',correct:false,why:'psychology = a ciência.'},{t:'therapy',correct:false,why:'therapy = o tratamento.'},{t:'treatment',correct:false,why:'treatment = o tratamento em si.'}]},
+ {type:'fill',stem:'Second Conditional with "to be" (formal): "If I ___ rich, I would travel." (ex.: were)',accept:['were'],answer:'were'},
+ {type:'mc',stem:'Which word is the clue that a mixed conditional has a PRESENT result?',opts:[{t:'now',correct:true,why:'now/today = resultado no presente (would + verbo).'},{t:'yesterday',correct:false,why:'yesterday = passado.'},{t:'ago',correct:false,why:'ago = passado.'},{t:'last week',correct:false,why:'last week = passado.'}]},
+ {type:'reorder',stem:'Put in order (Mixed A — past → present):',words:['If','I','had','slept','I','would','feel','better','now'],answer:'If I had slept I would feel better now'},
+ {type:'fill',stem:'Write the missing verb (collocation): "I want to ___ nature on my walks." (ex.: appreciate)',accept:['appreciate'],answer:'appreciate'},
+ {type:'mc',stem:'Choose the correct sentence:',opts:[{t:'If I had known, I would have helped.',correct:true,why:'Third Conditional correto: if + past perfect (had known) + would have + particípio (have helped).'},{t:'If I would know, I had helped.',correct:false,why:'"would" nunca vai depois do "if".'},{t:'If I knew, I would have help.',correct:false,why:'Falta o particípio: o certo é "would have helped".'},{t:'If I have known, I will help.',correct:false,why:'First Conditional (real); não fala de passado que não aconteceu.'}]}
+];
+var LETTERS=['A','B','C','D','E'];
+/* prepara visão estável: embaralha ordem das questões e das opções por semente fixa */
+var ORDER=seededShuffle(QUESTIONS.map(function(_,i){return i;}),101);
+var VIEW=ORDER.map(function(origIdx,pos){
+  var q=QUESTIONS[origIdx];var v={type:q.type,stem:q.stem,orig:origIdx};
+  if(q.type==='mc'){v.opts=seededShuffle(q.opts.map(function(o,oi){return{id:oi,t:o.t,correct:o.correct,why:o.why};}),origIdx*17+9);}
+  else if(q.type==='fill'){v.accept=q.accept;v.answer=q.answer;}
+  else if(q.type==='reorder'){v.words=q.words;v.answer=q.answer;v.scram=seededShuffle(q.words.map(function(w,wi){return wi;}),origIdx*17+5);}
+  return v;
+});
+var mem={answers:{},submitted:false,code:'',gabarito:false};
+var store={get:function(){try{var r=localStorage.getItem(KEY);return r?JSON.parse(r):null;}catch(e){return mem._s||null;}},set:function(o){try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){mem._s=o;}}};
+function save(){store.set({answers:mem.answers,submitted:mem.submitted,code:mem.code,gabarito:mem.gabarito});stamp();}
+function stamp(){var d=new Date();document.getElementById('saveStatus').textContent='💾 salvo '+d.toLocaleDateString('pt-BR')+' '+d.toLocaleTimeString('pt-BR').slice(0,5);}
+var TYPELABEL={mc:'Multiple Choice',fill:'Fill in the Blank',reorder:'Reorder'};
+function render(){
+  var html='';
+  VIEW.forEach(function(q,pos){
+    html+='<div class="q" id="q'+pos+'"><div class="q-head"><span class="q-num">Question '+(pos+1)+'</span><span class="type-badge type-'+q.type+'">'+TYPELABEL[q.type]+'</span></div><div class="q-stem">'+q.stem+'</div>';
+    if(q.type==='mc'){
+      q.opts.forEach(function(o,oi){html+='<div class="opt" data-q="'+pos+'" data-id="'+o.id+'"><div class="letter">'+LETTERS[oi]+'</div><div class="txt">'+o.t+'</div></div><div class="why" id="why'+pos+'_'+o.id+'">'+o.why+'</div>';});
+    }else if(q.type==='fill'){
+      html+='<input class="fill-input" id="fill'+pos+'" data-q="'+pos+'" type="text" autocomplete="off" placeholder="digite sua resposta em inglês…"><div class="answer-reveal" id="rev'+pos+'"></div>';
+    }else if(q.type==='reorder'){
+      html+='<div class="reorder-answer" id="ans'+pos+'" data-q="'+pos+'"></div><div class="reorder-pool" id="pool'+pos+'"></div><button class="reorder-reset" data-q="'+pos+'">↺ recomeçar</button><div class="answer-reveal" id="rev'+pos+'"></div>';
+    }
+    html+='</div>';
+  });
+  document.getElementById('sim').innerHTML=html;
+  bind();
+}
+function bind(){
+  document.querySelectorAll('.opt').forEach(function(el){el.addEventListener('click',function(){if(mem.submitted)return;var qi=el.dataset.q;document.querySelectorAll('.opt[data-q="'+qi+'"]').forEach(function(x){x.classList.remove('sel');});el.classList.add('sel');mem.answers[qi]={t:'mc',v:parseInt(el.dataset.id)};count();save();});});
+  document.querySelectorAll('.fill-input').forEach(function(el){el.addEventListener('input',function(){if(mem.submitted)return;var qi=el.dataset.q;mem.answers[qi]={t:'fill',v:el.value};count();save();});});
+  VIEW.forEach(function(q,pos){if(q.type==='reorder')renderReorder(pos);});
+  document.querySelectorAll('.reorder-reset').forEach(function(b){b.addEventListener('click',function(){if(mem.submitted)return;var qi=b.dataset.q;mem.answers[qi]={t:'reorder',v:[]};renderReorder(qi);count();save();});});
+}
+function renderReorder(pos){
+  var q=VIEW[pos];var chosen=(mem.answers[pos]&&mem.answers[pos].v)||[];
+  var ansEl=document.getElementById('ans'+pos);var poolEl=document.getElementById('pool'+pos);
+  ansEl.innerHTML='';poolEl.innerHTML='';
+  chosen.forEach(function(wi){var c=document.createElement('span');c.className='chip chip-answer';c.textContent=q.words[wi];if(!mem.submitted){c.onclick=function(){var arr=mem.answers[pos].v.slice();var ix=arr.indexOf(wi);arr.splice(ix,1);mem.answers[pos]={t:'reorder',v:arr};renderReorder(pos);count();save();};}ansEl.appendChild(c);});
+  q.scram.forEach(function(wi){var used=chosen.indexOf(wi)>=0;var c=document.createElement('span');c.className='chip'+(used?' used':'');c.textContent=q.words[wi];if(!used&&!mem.submitted){c.onclick=function(){var arr=(mem.answers[pos]&&mem.answers[pos].v)?mem.answers[pos].v.slice():[];arr.push(wi);mem.answers[pos]={t:'reorder',v:arr};renderReorder(pos);count();save();};}poolEl.appendChild(c);});
+}
+function isAnswered(pos){var a=mem.answers[pos];if(!a)return false;if(a.t==='mc')return a.v!==undefined&&a.v!==null;if(a.t==='fill')return (a.v||'').trim().length>0;if(a.t==='reorder')return a.v&&a.v.length===VIEW[pos].words.length;return false;}
+function count(){var n=0;for(var i=0;i<VIEW.length;i++){if(isAnswered(i))n++;}document.getElementById('progMini').textContent='Respondidas: '+n+' / '+VIEW.length;document.getElementById('submitBtn').disabled=(n<VIEW.length||mem.submitted);return n;}
+function gradeOne(pos){var q=VIEW[pos];var a=mem.answers[pos];if(!a)return false;
+  if(q.type==='mc'){var correctId=null;QUESTIONS[q.orig].opts.forEach(function(o,oi){if(o.correct)correctId=oi;});return a.v===correctId;}
+  if(q.type==='fill'){return q.accept.map(norm).indexOf(norm(a.v))>=0;}
+  if(q.type==='reorder'){var built=a.v.map(function(wi){return q.words[wi];}).join(' ');return norm(built)===norm(q.answer);}
+  return false;}
+function score(){var s=0;for(var i=0;i<VIEW.length;i++){if(gradeOne(i))s++;}return s;}
+function genCode(sc){var L='ABCDEFGHJKLMNPQRSTUVWXYZ';var y=L[Math.floor(Math.random()*L.length)]+L[Math.floor(Math.random()*L.length)];var xx=(sc<10?'0':'')+sc;return 'SIM-'+xx+'-'+y;}
+document.getElementById('submitBtn').addEventListener('click',function(){if(count()<VIEW.length||mem.submitted)return;mem.submitted=true;var sc=score();if(!mem.code)mem.code=genCode(sc);showResult(sc);save();});
+function showResult(sc){
+  document.getElementById('scoreTxt').textContent='Você acertou '+sc+' de '+VIEW.length+' 🎉';
+  document.getElementById('codeTxt').textContent=mem.code;
+  document.getElementById('codebox').classList.add('show');document.getElementById('gate').classList.add('show');
+  document.getElementById('submitBtn').style.display='none';
+  document.querySelectorAll('.opt').forEach(function(x){x.classList.add('locked');});
+  document.querySelectorAll('.fill-input').forEach(function(x){x.disabled=true;});
+  document.getElementById('codebox').scrollIntoView({behavior:'smooth'});
+}
+function checkGate(){var v=document.getElementById('gateInput').value.trim().toUpperCase();if(v===mem.code){mem.gabarito=true;revealGabarito();save();document.getElementById('gate').classList.remove('show');}else{document.getElementById('gateErr').style.display='block';}}
+function revealGabarito(){
+  VIEW.forEach(function(q,pos){
+    var ok=gradeOne(pos);
+    if(q.type==='mc'){var correctId=null;QUESTIONS[q.orig].opts.forEach(function(o,oi){if(o.correct)correctId=oi;});var chosen=mem.answers[pos]?mem.answers[pos].v:null;
+      q.opts.forEach(function(o){var el=document.querySelector('.opt[data-q="'+pos+'"][data-id="'+o.id+'"]');var why=document.getElementById('why'+pos+'_'+o.id);if(o.id===correctId){el.classList.add('correct');why.classList.add('showw','good');}else{el.classList.add('dim');why.classList.add('showw');if(o.id===chosen){el.classList.remove('dim');el.classList.add('wrongpick');}}});
+    }else if(q.type==='fill'){var inp=document.getElementById('fill'+pos);inp.classList.add(ok?'correct':'wrong');var rev=document.getElementById('rev'+pos);rev.innerHTML='Resposta correta: <b>'+q.answer+'</b>'+(ok?' ✔':' — você escreveu: "'+((mem.answers[pos]&&mem.answers[pos].v)||'')+'"');rev.classList.add('show');
+    }else if(q.type==='reorder'){var rev2=document.getElementById('rev'+pos);var built=(mem.answers[pos]&&mem.answers[pos].v)?mem.answers[pos].v.map(function(wi){return q.words[wi];}).join(' '):'';rev2.innerHTML='Ordem correta: <b>'+q.answer+'</b>'+(ok?' ✔':' — sua ordem: "'+built+'"');rev2.classList.add('show');document.querySelectorAll('#ans'+pos+' .chip').forEach(function(c){c.style.pointerEvents='none';});document.querySelectorAll('#pool'+pos+' .chip').forEach(function(c){c.style.pointerEvents='none';});}
+  });
+}
+function exportData(){var blob=new Blob([JSON.stringify(store.get()||{},null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='simulado_selfcare_backup.json';a.click();}
+function importData(ev){var f=ev.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(){try{store.set(JSON.parse(r.result));location.reload();}catch(e){}};r.readAsText(f);}
+function askReset(){document.getElementById('modalBg').classList.add('show');document.getElementById('modalConfirm').onclick=function(){try{localStorage.removeItem(KEY);}catch(e){}location.reload();};}
+function closeModal(){document.getElementById('modalBg').classList.remove('show');}
+function restore(){
+  var s=store.get();render();if(!s){count();return;}
+  mem.answers=s.answers||{};mem.submitted=!!s.submitted;mem.code=s.code||'';mem.gabarito=!!s.gabarito;
+  Object.keys(mem.answers).forEach(function(pos){var a=mem.answers[pos];if(!a)return;if(a.t==='mc'){var el=document.querySelector('.opt[data-q="'+pos+'"][data-id="'+a.v+'"]');if(el)el.classList.add('sel');}else if(a.t==='fill'){var inp=document.getElementById('fill'+pos);if(inp)inp.value=a.v;}else if(a.t==='reorder'){renderReorder(pos);}});
+  count();
+  if(mem.submitted){showResult(score());if(mem.gabarito){revealGabarito();document.getElementById('gate').classList.remove('show');}}
+  stamp();
+}
+restore();
+</script>
+</body>
+</html>
