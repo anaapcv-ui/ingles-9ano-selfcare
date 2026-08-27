@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz — Taking Care of Ourselves — Inglês 9º ano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#12121f;--bg-deep:#0b0b16;--card:#1c1c2e;--card-2:#232338;--border:#33334d;--border-soft:#2a2a40;
+  --text:#eef0f8;--text-dim:#9aa0bd;--text-soft:#c3c8de;
+  --teal:#34d399;--teal-soft:rgba(52,211,153,.14);--violet:#a78bfa;--violet-soft:rgba(167,139,250,.14);
+  --rose:#fb7185;--rose-soft:rgba(251,113,133,.14);--sky:#38bdf8;--amber:#fbbf24;
+  --green:#34d399;--gray:#565f7a;
+  --shadow:0 10px 30px rgba(0,0,0,.45);--shadow-soft:0 4px 16px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--bg);
+  background-image:radial-gradient(circle at 15% 5%,rgba(167,139,250,.06) 0,transparent 45%),radial-gradient(circle at 85% 90%,rgba(52,211,153,.06) 0,transparent 45%);
+  background-attachment:fixed;color:var(--text);line-height:1.6;min-height:100vh;padding-bottom:80px}
+header{text-align:center;padding:40px 20px 24px;background:linear-gradient(180deg,rgba(167,139,250,.08) 0,transparent 100%);border-bottom:1px solid var(--border-soft)}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--violet);color:var(--violet);padding:6px 15px;border-radius:99px;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+.badge::before{content:'🎯'}
+h1{font-family:'Sora';font-size:clamp(1.8rem,6vw,3rem);font-weight:800;letter-spacing:-.02em;background:linear-gradient(135deg,var(--violet),#c4b5fd,var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
+.subtitle{font-family:'Caveat',cursive;font-size:1.4rem;color:var(--text-dim)}
+.unit-tag{display:block;margin-top:8px;font-size:.8rem;color:var(--text-soft)}
+main{max-width:800px;margin:0 auto;padding:24px 18px}
+.info{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--violet);border-radius:14px;padding:18px 20px;margin-bottom:22px;font-size:.94rem;color:var(--text-soft)}
+.info strong{color:var(--text)}
+.codebox{display:none;background:var(--card);border:2px solid var(--amber);border-radius:14px;padding:20px;margin-bottom:22px;text-align:center}
+.codebox.show{display:block}
+.codebox .score{font-family:'Sora';font-size:1.4rem;font-weight:800;color:var(--teal);margin-bottom:6px}
+.codebox .code{font-family:'Sora';font-size:1.8rem;font-weight:800;letter-spacing:.08em;color:var(--amber);margin:8px 0}
+.codebox p{font-size:.88rem;color:var(--text-dim)}
+.q{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 22px;margin-bottom:18px;box-shadow:var(--shadow-soft)}
+.q-num{font-family:'Caveat',cursive;font-size:1.1rem;color:var(--violet);margin-bottom:4px}
+.q-tag{display:inline-block;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:2px 8px;border-radius:6px;margin-left:8px;background:var(--teal-soft);color:var(--teal)}
+.q-stem{font-family:'Sora';font-size:1.05rem;font-weight:600;color:var(--text);margin-bottom:14px;line-height:1.45}
+.q-stem em{color:var(--violet);font-style:normal}
+.opt{display:flex;align-items:flex-start;gap:11px;padding:12px 14px;background:var(--bg-deep);border:1px solid var(--border-soft);border-radius:10px;margin-bottom:9px;cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--violet)}
+.opt.sel{border-color:var(--violet);background:var(--violet-soft)}
+.opt .letter{flex-shrink:0;width:26px;height:26px;border-radius:7px;background:var(--card-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Sora';font-weight:700;font-size:.85rem;color:var(--text-soft)}
+.opt.sel .letter{background:var(--violet);color:var(--bg-deep);border-color:var(--violet)}
+.opt .txt{font-size:.94rem;color:var(--text-soft);padding-top:2px}
+.opt.locked{cursor:default;pointer-events:none}
+.opt.correct{border-color:var(--green);background:var(--teal-soft)}
+.opt.correct .letter{background:var(--green);color:var(--bg-deep);border-color:var(--green)}
+.opt.wrongpick{border-color:var(--rose);background:var(--rose-soft)}
+.opt.wrongpick .letter{background:var(--rose);color:var(--bg-deep);border-color:var(--rose)}
+.opt.dim{opacity:.55}
+.why{display:none;margin-top:8px;font-size:.86rem;padding:10px 12px;border-radius:8px;background:var(--card-2);border-left:3px solid var(--gray);color:var(--text-dim)}
+.why.showw{display:block}
+.why.good{border-left-color:var(--green);color:var(--text-soft)}
+.why b{color:var(--text)}
+.submit-btn{width:100%;background:var(--violet);color:var(--bg-deep);border:none;border-radius:12px;padding:15px;font-family:'Sora';font-weight:800;font-size:1.05rem;cursor:pointer;margin:8px 0 20px;transition:transform .1s,opacity .2s}
+.submit-btn:disabled{opacity:.4;cursor:not-allowed}
+.submit-btn:not(:disabled):hover{transform:translateY(-2px)}
+.gate{background:var(--card);border:1px dashed var(--amber);border-radius:14px;padding:18px 20px;margin-bottom:20px;display:none}
+.gate.show{display:block}
+.gate label{display:block;font-size:.9rem;color:var(--text-soft);margin-bottom:8px}
+.gate input{background:var(--bg-deep);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:'Sora';font-size:1rem;padding:10px 12px;width:180px;text-transform:uppercase;letter-spacing:.06em}
+.gate button{background:var(--amber);color:var(--bg-deep);border:none;border-radius:10px;padding:11px 18px;font-family:'Sora';font-weight:700;cursor:pointer;margin-left:8px}
+.gate .err{color:var(--rose);font-size:.82rem;margin-top:8px;display:none}
+.nav-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.nav-links a{text-decoration:none;background:var(--teal);color:var(--bg-deep);padding:12px 22px;border-radius:12px;font-family:'Sora';font-weight:700;font-size:.9rem;transition:transform .15s}
+.nav-links a.ghost{background:var(--card-2);color:var(--text-soft);border:1px solid var(--border)}
+.nav-links a:hover{transform:translateY(-2px)}
+.save-panel{position:fixed;bottom:0;left:0;right:0;background:rgba(11,11,22,.96);backdrop-filter:blur(10px);border-top:1px solid var(--border);padding:8px 14px;z-index:60;display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;font-size:.8rem}
+.save-panel .status{color:var(--text-dim)}
+.save-panel button{background:var(--card-2);color:var(--text-soft);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-family:'Nunito';font-weight:700;font-size:.78rem;cursor:pointer}
+.save-panel button:hover{border-color:var(--violet);color:var(--text)}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:100;align-items:center;justify-content:center;padding:20px}
+.modal-bg.show{display:flex}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px;max-width:400px;width:100%}
+.modal h4{font-family:'Sora';color:var(--text);margin-bottom:10px}
+.modal p{color:var(--text-soft);font-size:.92rem;margin-bottom:18px}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end}
+.modal-actions button{border-radius:10px;padding:9px 18px;font-family:'Sora';font-weight:700;font-size:.85rem;cursor:pointer;border:none}
+.modal-actions .cancel{background:var(--card-2);color:var(--text-soft);border:1px solid var(--border)}
+.modal-actions .confirm{background:var(--rose);color:var(--bg-deep)}
+.progress-mini{position:sticky;top:0;z-index:40;background:rgba(18,18,31,.94);backdrop-filter:blur(10px);padding:10px 18px;border-bottom:1px solid var(--border);font-size:.82rem;color:var(--text-dim);text-align:center;font-weight:700}
+@media(max-width:600px){main{padding:20px 14px}.q{padding:18px}}
+</style>
+</head>
+<body>
+<header>
+  <span class="badge">Quiz Interativo</span>
+  <h1>Quiz — Self-Care</h1>
+  <p class="subtitle">15 questions · test yourself</p>
+  <span class="unit-tag">UNIT 6 · Conditionals · Healthy Habits · Mental Health</span>
+</header>
+<div class="progress-mini" id="progMini">Respondidas: 0 / 15</div>
+<main>
+  <div class="info">Responda as <strong>15 questões</strong> (todas objetivas). Marque uma alternativa em cada. Quando terminar, clique em <strong>Corrigir</strong>: você recebe sua nota e um <strong>código MED</strong>. Digite o código para abrir o <strong>gabarito comentado</strong> (verde = certa, cinza = por que as outras estão erradas). Suas respostas ficam salvas.</div>
+  <div class="codebox" id="codebox">
+    <div class="score" id="scoreTxt"></div>
+    <div class="code" id="codeTxt"></div>
+    <p>📌 Anote este código. Ele libera o gabarito e serve de comprovante para a sua mãe. Ele não muda quando você reabre.</p>
+  </div>
+  <div class="gate" id="gate">
+    <label>🔑 Digite o código <strong>MED</strong> para ver o gabarito comentado:</label>
+    <input type="text" id="gateInput" placeholder="MED-XX-YY" maxlength="9">
+    <button onclick="checkGate()">Abrir gabarito</button>
+    <div class="err" id="gateErr">Código incorreto. Confira as letras (sem espaços).</div>
+  </div>
+  <div id="quiz"></div>
+  <button class="submit-btn" id="submitBtn" disabled>Corrigir quiz ✓</button>
+  <div class="nav-links">
+    <a href="ingles_resumo.html">🗺️ Ir para o Resumo →</a>
+    <a href="index.html" class="ghost">↩ Início</a>
+  </div>
+</main>
+<div class="save-panel">
+  <span class="status" id="saveStatus">💾 salvando automaticamente…</span>
+  <button onclick="exportData()">📥 Exportar</button>
+  <button onclick="document.getElementById('importFile').click()">📤 Importar</button>
+  <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
+  <button onclick="askReset()">🗑️ Zerar tudo</button>
+</div>
+<div class="modal-bg" id="modalBg">
+  <div class="modal"><h4>Zerar tudo?</h4><p>Isso apaga suas respostas, a nota e o código deste quiz. Não dá para desfazer.</p>
+  <div class="modal-actions"><button class="cancel" onclick="closeModal()">Cancelar</button><button class="confirm" id="modalConfirm">Zerar</button></div></div>
+</div>
+<script>
+var KEY='ig9_selfcare_quiz_v1';
+/* cada questão: stem, tag, options com id estável + correct + why. O gabarito é rastreado pelo CONTEÚDO (id), nunca pela letra. */
+var QUESTIONS=[
+ {tag:'Second Cond.',stem:'Choose the correct Second Conditional: "If I ___ more free time, I ___ exercise every day."',
+  opts:[
+   {t:'had / would',correct:true,why:'Second Conditional = if + <b>passado simples</b> (had) e <b>would + verbo base</b>. Situação imaginária do presente.'},
+   {t:'have / will',correct:false,why:'Isso é First Conditional (situação real). A frase é imaginária, então pede Second.'},
+   {t:'had / will',correct:false,why:'Mistura errada: com "had" no if, o resultado tem que ser <b>would</b>, não "will".'},
+   {t:'would have / had',correct:false,why:'"would have" é Third Conditional (passado). Aqui o "se" é do presente.'}
+  ]},
+ {tag:'Second Cond.',stem:'In formal English, complete: "If I ___ you, I would talk to a psychologist."',
+  opts:[
+   {t:'were',correct:true,why:'No Second Conditional formal, o verbo to be vira <b>were</b> para todas as pessoas: "If I were you".'},
+   {t:'was',correct:false,why:'"If I was you" é informal e evitado na prova. O correto formal é <b>were</b>.'},
+   {t:'am',correct:false,why:'O if do Second Conditional exige passado (were/was), nunca o presente "am".'},
+   {t:'would be',correct:false,why:'O "would" fica na oração principal (resultado), não depois do "if".'}
+  ]},
+ {tag:'Third Cond.',stem:'Complete the Third Conditional: "If Cathy ___ swimming, she wouldn\'t ___ an earache."',
+  opts:[
+   {t:"hadn't gone / have gotten",correct:true,why:'Third Conditional = if + <b>past perfect</b> (hadn\'t gone) e <b>would have + particípio</b> (have gotten).'},
+   {t:"didn't go / get",correct:false,why:'Isso é passado simples, não Third Conditional. Falta o "had" e o "have".'},
+   {t:"hadn't gone / get",correct:false,why:'O resultado precisa de <b>have + particípio</b>: "wouldn\'t have gotten", não "wouldn\'t get".'},
+   {t:"wouldn't go / have got",correct:false,why:'Depois do "if" não usamos "would"; usamos o past perfect (hadn\'t gone).'}
+  ]},
+ {tag:'Third Cond.',stem:'Which sentence is a correct Third Conditional?',
+  opts:[
+   {t:'If you had exercised this morning, you would have felt better.',correct:true,why:'Perfeito: if + past perfect (had exercised) + would have + particípio (have felt).'},
+   {t:'If you exercised this morning, you would feel better.',correct:false,why:'Essa é Second Conditional (presente imaginário), não Third.'},
+   {t:'If you would have exercised, you had felt better.',correct:false,why:'"would have" nunca vai depois do "if". A ordem dos tempos está trocada.'},
+   {t:'If you have exercised, you will feel better.',correct:false,why:'Isso é First Conditional (situação real), não fala de passado que não aconteceu.'}
+  ]},
+ {tag:'Third Cond.',stem:'"If they ___ up late, I wouldn\'t have slept in." (they DID stay up late)',
+  opts:[
+   {t:"hadn't stayed",correct:true,why:'Third Conditional negativo: if + <b>hadn\'t + particípio</b> (hadn\'t stayed).'},
+   {t:"didn't stay",correct:false,why:'Passado simples não forma Third Conditional. Falta o "had".'},
+   {t:"wouldn't stay",correct:false,why:'"would" não aparece na oração com "if".'},
+   {t:"haven't stayed",correct:false,why:'Present perfect (haven\'t stayed) não serve para o Third Conditional; use past perfect (hadn\'t stayed).'}
+  ]},
+ {tag:'Third Cond.',stem:'To show you are LESS sure, which modal can replace "would" in the main clause? "If you had gone to yoga, you ___ have learned to relax."',
+  opts:[
+   {t:'might',correct:true,why:'<b>might</b> e <b>could</b> mostram menos certeza no Third Conditional: "you might have learned".'},
+   {t:'will',correct:false,why:'"will" não combina com "have + particípio" nesse condicional de passado.'},
+   {t:'must',correct:false,why:'"must" indica obrigação/certeza, não a incerteza que a frase pede.'},
+   {t:'should',correct:false,why:'"should have" muda o sentido para conselho/arrependimento, não é o modal de incerteza pedido.'}
+  ]},
+ {tag:'Mixed Cond.',stem:'Past cause → present result. Complete: "If I ___ seeing a psychologist, I ___ much less balanced now."',
+  opts:[
+   {t:"hadn't started / would be",correct:true,why:'Mixed (passado→presente): if + <b>past perfect</b> + <b>would + verbo base</b>. O "now" mostra o resultado no presente.'},
+   {t:"hadn't started / would have been",correct:false,why:'"would have been" é resultado no passado; mas "now" pede resultado no presente (would be).'},
+   {t:"didn't start / would be",correct:false,why:'A causa é no passado, então o if precisa de past perfect (hadn\'t started).'},
+   {t:"wouldn't start / would be",correct:false,why:'Depois do "if" não usamos "would". Use o past perfect.'}
+  ]},
+ {tag:'Mixed Cond.',stem:'What word is the biggest clue that a mixed conditional has a PRESENT result?',
+  opts:[
+   {t:'now',correct:true,why:'<b>now</b> (e "today") indica resultado no presente, então usamos <b>would + verbo base</b>, sem "have".'},
+   {t:'yesterday',correct:false,why:'"yesterday" aponta para o passado, o que levaria a "would have + particípio".'},
+   {t:'ago',correct:false,why:'"ago" marca tempo passado, não presente.'},
+   {t:'last year',correct:false,why:'"last year" é passado; não indica resultado no presente.'}
+  ]},
+ {tag:'Mixed Cond.',stem:'Present/general cause → past result: "If you ___ a healthier diet, you ___ better in the race."',
+  opts:[
+   {t:'had / would have done',correct:true,why:'Mixed (geral→passado): if + <b>simple past</b> (had) + <b>would have + particípio</b> (would have done).'},
+   {t:'had had / would do',correct:false,why:'Aqui a causa é geral (presente), então o if fica no passado simples "had", e o resultado é no passado "would have done".'},
+   {t:'have / will do',correct:false,why:'Isso é First Conditional. A frase é hipotética, não real.'},
+   {t:'had / would do',correct:false,why:'O resultado aconteceu no passado (a corrida), então precisa de "would have done".'}
+  ]},
+ {tag:'Healthy Habits',stem:'Which verb goes with "a healthy diet"?',
+  opts:[
+   {t:'maintain',correct:true,why:'A collocation correta é <b>maintain a healthy diet</b> (manter uma dieta saudável).'},
+   {t:'do',correct:false,why:'"do a diet" não é usado; o certo é <b>maintain</b> a healthy diet.'},
+   {t:'make',correct:false,why:'"make a diet" está errado. Use <b>maintain</b>.'},
+   {t:'take',correct:false,why:'"take a diet" não é uma collocation correta.'}
+  ]},
+ {tag:'Healthy Habits',stem:'Complete the healthy-habit collocation: "___ a journal to write your feelings."',
+  opts:[
+   {t:'Keep',correct:true,why:'A collocation é <b>keep a journal</b> (manter um diário).'},
+   {t:'Do',correct:false,why:'"do a journal" não existe. É <b>keep</b> a journal.'},
+   {t:'Make',correct:false,why:'"make a journal" não é a collocation usada no livro.'},
+   {t:'Play',correct:false,why:'"play a journal" não faz sentido.'}
+  ]},
+ {tag:'Healthy Habits',stem:'Which option is a correct healthy-habits collocation?',
+  opts:[
+   {t:'limit screen time',correct:true,why:'<b>limit screen time</b> = limitar o tempo de tela. Collocation do livro.'},
+   {t:'reduce nature',correct:false,why:'Não faz sentido: com nature usamos <b>appreciate nature</b>.'},
+   {t:'practice a routine',correct:false,why:'O certo é <b>establish a routine</b> e <b>practice meditation</b>.'},
+   {t:'keep screen time',correct:false,why:'Com screen time usamos <b>limit</b>, não "keep".'}
+  ]},
+ {tag:'Mental Health',stem:'What is the best meaning of "recovery"?',
+  opts:[
+   {t:'recuperação (melhorar de um problema)',correct:true,why:'<b>recovery</b> = recuperação, o processo de melhorar de um problema de saúde.'},
+   {t:'recaída',correct:false,why:'Recaída seria "relapse". "recovery" é o oposto: melhorar.'},
+   {t:'lembrança',correct:false,why:'Lembrança é "memory". "recovery" é recuperação.'},
+   {t:'descoberta',correct:false,why:'Descoberta é "discovery". Cuidado: parece, mas não é "recovery".'}
+  ]},
+ {tag:'Mental Health',stem:'"It\'s a common misunderstanding that sadness and depression are the same." This sentence says that they are:',
+  opts:[
+   {t:'different things',correct:true,why:'"misunderstanding" = engano. A frase corrige o engano: tristeza e depressão são <b>diferentes</b>.'},
+   {t:'exactly the same',correct:false,why:'O texto diz que achar isso é um ENGANO — logo, não são iguais.'},
+   {t:'both illnesses',correct:false,why:'Tristeza é um sentimento normal; depressão é uma condição. Não são "ambas doenças".'},
+   {t:'impossible to treat',correct:false,why:'A frase não fala sobre tratamento, e sim que são coisas diferentes.'}
+  ]},
+ {tag:'Mental Health',stem:'Choose the word that means "a professional who helps with mental health":',
+  opts:[
+   {t:'psychologist',correct:true,why:'<b>psychologist</b> = psicólogo, o profissional que ajuda na saúde mental.'},
+   {t:'psychology',correct:false,why:'"psychology" é a ciência (psicologia), não a pessoa.'},
+   {t:'therapy',correct:false,why:'"therapy" é o tratamento (terapia), não a pessoa que atende.'},
+   {t:'treatment',correct:false,why:'"treatment" é o tratamento em si, não o profissional.'}
+  ]}
+];
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function seededShuffle(arr,seed){var a=arr.slice();var rnd=mulberry32(seed+7);for(var i=a.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1));var tmp=a[i];a[i]=a[j];a[j]=tmp;}return a;}
+/* prepara ordem embaralhada estável por questão; cada opção guarda id original */
+var VIEW=QUESTIONS.map(function(q,qi){
+  var withId=q.opts.map(function(o,oi){return{id:oi,t:o.t,correct:o.correct,why:o.why};});
+  return{tag:q.tag,stem:q.stem,opts:seededShuffle(withId,qi*13+1)};
+});
+var LETTERS=['A','B','C','D','E'];
+var mem={answers:{},submitted:false,code:'',gabarito:false};
+var store={get:function(){try{var r=localStorage.getItem(KEY);return r?JSON.parse(r):null;}catch(e){return mem._s||null;}},set:function(o){try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){mem._s=o;}}};
+function save(){store.set({answers:mem.answers,submitted:mem.submitted,code:mem.code,gabarito:mem.gabarito});stamp();}
+function stamp(){var d=new Date();document.getElementById('saveStatus').textContent='💾 salvo '+d.toLocaleDateString('pt-BR')+' '+d.toLocaleTimeString('pt-BR').slice(0,5);}
+function render(){
+  var html='';
+  VIEW.forEach(function(q,qi){
+    html+='<div class="q" id="q'+qi+'"><div class="q-num">Question '+(qi+1)+'<span class="q-tag">'+q.tag+'</span></div><div class="q-stem">'+q.stem+'</div>';
+    q.opts.forEach(function(o,oi){
+      html+='<div class="opt" data-q="'+qi+'" data-id="'+o.id+'"><div class="letter">'+LETTERS[oi]+'</div><div class="txt">'+o.t+'</div></div>';
+      html+='<div class="why" id="why'+qi+'_'+o.id+'">'+o.why+'</div>';
+    });
+    html+='</div>';
+  });
+  document.getElementById('quiz').innerHTML=html;
+  document.querySelectorAll('.opt').forEach(function(el){
+    el.addEventListener('click',function(){
+      if(mem.submitted)return;
+      var qi=el.dataset.q;
+      document.querySelectorAll('.opt[data-q="'+qi+'"]').forEach(function(x){x.classList.remove('sel');});
+      el.classList.add('sel');mem.answers[qi]=parseInt(el.dataset.id);
+      updateCount();save();
+    });
+  });
+}
+function updateCount(){var n=Object.keys(mem.answers).length;document.getElementById('progMini').textContent='Respondidas: '+n+' / 15';document.getElementById('submitBtn').disabled=(n<15||mem.submitted);}
+function score(){var s=0;QUESTIONS.forEach(function(q,qi){var chosen=mem.answers[qi];var correctId=null;q.opts.forEach(function(o,oi){if(o.correct)correctId=oi;});if(chosen===correctId)s++;});return s;}
+function genCode(sc){var L='ABCDEFGHJKLMNPQRSTUVWXYZ';var y=L[Math.floor(Math.random()*L.length)]+L[Math.floor(Math.random()*L.length)];var xx=(sc<10?'0':'')+sc;return 'MED-'+xx+'-'+y;}
+document.getElementById('submitBtn').addEventListener('click',function(){
+  if(Object.keys(mem.answers).length<15||mem.submitted)return;
+  mem.submitted=true;var sc=score();
+  if(!mem.code)mem.code=genCode(sc);
+  showResult(sc);save();
+});
+function showResult(sc){
+  document.getElementById('scoreTxt').textContent='Você acertou '+sc+' de 15 🎉';
+  document.getElementById('codeTxt').textContent=mem.code;
+  document.getElementById('codebox').classList.add('show');
+  document.getElementById('gate').classList.add('show');
+  document.getElementById('submitBtn').style.display='none';
+  document.querySelectorAll('.opt').forEach(function(x){x.classList.add('locked');});
+  document.getElementById('codebox').scrollIntoView({behavior:'smooth'});
+}
+function checkGate(){
+  var v=document.getElementById('gateInput').value.trim().toUpperCase();
+  if(v===mem.code){mem.gabarito=true;revealGabarito();save();document.getElementById('gate').classList.remove('show');}
+  else{document.getElementById('gateErr').style.display='block';}
+}
+function revealGabarito(){
+  QUESTIONS.forEach(function(q,qi){
+    var chosen=mem.answers[qi];var correctId=null;q.opts.forEach(function(o,oi){if(o.correct)correctId=oi;});
+    q.opts.forEach(function(o,oi){
+      var el=document.querySelector('.opt[data-q="'+qi+'"][data-id="'+oi+'"]');
+      var why=document.getElementById('why'+qi+'_'+oi);
+      if(oi===correctId){el.classList.add('correct');why.classList.add('showw','good');}
+      else{el.classList.add('dim');why.classList.add('showw');if(oi===chosen){el.classList.remove('dim');el.classList.add('wrongpick');}}
+    });
+  });
+}
+function exportData(){var blob=new Blob([JSON.stringify(store.get()||{},null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='quiz_selfcare_backup.json';a.click();}
+function importData(ev){var f=ev.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(){try{store.set(JSON.parse(r.result));location.reload();}catch(e){}};r.readAsText(f);}
+function askReset(){document.getElementById('modalBg').classList.add('show');document.getElementById('modalConfirm').onclick=function(){try{localStorage.removeItem(KEY);}catch(e){}location.reload();};}
+function closeModal(){document.getElementById('modalBg').classList.remove('show');}
+function restore(){
+  var s=store.get();render();if(!s){updateCount();return;}
+  mem.answers=s.answers||{};mem.submitted=!!s.submitted;mem.code=s.code||'';mem.gabarito=!!s.gabarito;
+  Object.keys(mem.answers).forEach(function(qi){var el=document.querySelector('.opt[data-q="'+qi+'"][data-id="'+mem.answers[qi]+'"]');if(el)el.classList.add('sel');});
+  updateCount();
+  if(mem.submitted){showResult(score());if(mem.gabarito){revealGabarito();document.getElementById('gate').classList.remove('show');}}
+  stamp();
+}
+restore();
+</script>
+</body>
+</html>
